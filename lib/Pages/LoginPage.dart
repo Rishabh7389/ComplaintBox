@@ -5,8 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
 import 'package:flutter_application_1/Pages/SignupPage.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String name = "";
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,7 @@ class LoginPage extends StatelessWidget {
           height: 20.0,
         ),
         Text(
-          "Welcome",
+          "Welcome $name",
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
         SizedBox(
@@ -41,8 +48,12 @@ class LoginPage extends StatelessWidget {
           child: TextField(
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              labelText: 'User Name',
+              labelText: "User Name ",
             ),
+            onChanged: (value) {
+              name = value;
+              setState(() {});
+            },
           ),
         ),
         Container(
