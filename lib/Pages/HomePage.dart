@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "'Enter Your Details'",
+                "Welcome",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               SizedBox(
