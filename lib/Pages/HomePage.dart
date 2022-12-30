@@ -47,12 +47,11 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(10),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: "Hostel No."),
-                ),
-              ),
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(), labelText: "Hostel Name"),
+                  )),
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
