@@ -2,7 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +23,7 @@ class HomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Form(
+          key: _formkey,
           child: Column(
             children: [
               Image.asset(
