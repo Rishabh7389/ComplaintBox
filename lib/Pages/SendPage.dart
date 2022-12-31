@@ -15,13 +15,17 @@ class SendPage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          Image.asset("assets/images/sent.png"),
+          SizedBox(
+            height: 10,
+          ),
           Center(
             child: Text(
               "Your Complaint Message",
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue),
+                  color: Colors.purple),
             ),
           ),
           SizedBox(
@@ -45,7 +49,7 @@ class SendPage extends StatelessWidget {
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue),
+                  color: Colors.green),
             ),
           ),
           SizedBox(
@@ -54,7 +58,7 @@ class SendPage extends StatelessWidget {
           Text(
             "As Soon As Possible",
             style: TextStyle(
-                fontSize: 22, fontWeight: FontWeight.bold, color: Colors.blue),
+                fontSize: 22, fontWeight: FontWeight.bold, color: Colors.red),
           ),
         ],
       ),
