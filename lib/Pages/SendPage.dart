@@ -20,6 +20,15 @@ class SendPage extends StatelessWidget {
             height: 10,
           ),
           Center(
+              child: Text(
+            "'Thank you'",
+            style: TextStyle(
+                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.pink),
+          )),
+          SizedBox(
+            height: 8,
+          ),
+          Center(
             child: Text(
               "Your Complaint Message",
               style: TextStyle(
