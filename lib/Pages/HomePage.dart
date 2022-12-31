@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/SendPage.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -86,7 +87,12 @@ class HomePage extends StatelessWidget {
                       'Send',
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SendPage()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: Color.fromARGB(255, 14, 143, 219)),
                   )),
