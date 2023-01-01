@@ -16,6 +16,9 @@ class SendPage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          SizedBox(
+            height: 100,
+          ),
           Image.asset("assets/images/sent.png"),
           SizedBox(
             height: 10,
@@ -77,20 +80,20 @@ class SendPage extends StatelessWidget {
               height: 40,
               width: 300,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  );
-                },
-                child: Text(
-                  "Report Another Complaint",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              )),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
+                  child: Text(
+                    "Report Another Complaint",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(primary: Colors.purple))),
         ],
       ),
     );
