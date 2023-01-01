@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/HomePage.dart';
 
 class SendPage extends StatelessWidget {
   const SendPage({super.key});
@@ -69,6 +70,27 @@ class SendPage extends StatelessWidget {
             style: TextStyle(
                 fontSize: 22, fontWeight: FontWeight.bold, color: Colors.red),
           ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+              height: 40,
+              width: 300,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+                },
+                child: Text(
+                  "Report Another Complaint",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              )),
         ],
       ),
     );
