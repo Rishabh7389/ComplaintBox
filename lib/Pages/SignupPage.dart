@@ -61,7 +61,7 @@ class SignupPage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 40),
                       child: Column(
                         children: [
-                          makeInput(label: "Username"),
+                          makeInput(label: "Email"),
                           makeInput(label: "Password", obsureText: true),
                           makeInput(label: "Confirm Pasword", obsureText: true)
                         ],

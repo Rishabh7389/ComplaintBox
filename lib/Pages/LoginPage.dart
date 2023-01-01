@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 20.0,
           ),
           Text(
-            "Welcome $name",
+            "Welcome ",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           SizedBox(
@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
             child: TextFormField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: "User Name ",
+                labelText: "Email ",
               ),
               onChanged: (value) {
                 name = value;
