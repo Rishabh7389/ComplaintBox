@@ -120,8 +120,6 @@ class HomePage extends StatelessWidget {
             ),
             Container(
                 alignment: Alignment.bottomCenter,
-                height: 50,
-                width: 100,
                 child: ElevatedButton(
                   child: const Text(
                     'Logout',
@@ -136,9 +134,6 @@ class HomePage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       primary: Color.fromARGB(255, 14, 143, 219)),
                 )),
-            Container(
-              child: DrawerHeader(child: const Text("Your Profile")),
-            ),
           ],
         ),
       ),
