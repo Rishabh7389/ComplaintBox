@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/LoginPage.dart';
 import 'package:flutter_application_1/Pages/SendPage.dart';
 
 class HomePage extends StatelessWidget {
@@ -110,7 +111,37 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            SizedBox(
+              height: 800,
+            ),
+            Container(
+                alignment: Alignment.bottomCenter,
+                height: 50,
+                width: 100,
+                child: ElevatedButton(
+                  child: const Text(
+                    'Logout',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 14, 143, 219)),
+                )),
+            Container(
+              child: DrawerHeader(child: const Text("Your Profile")),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

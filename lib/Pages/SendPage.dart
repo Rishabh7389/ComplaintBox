@@ -17,7 +17,7 @@ class SendPage extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: 100,
+            height: 80,
           ),
           Image.asset("assets/images/sent.png"),
           SizedBox(
@@ -74,7 +74,7 @@ class SendPage extends StatelessWidget {
                 fontSize: 22, fontWeight: FontWeight.bold, color: Colors.red),
           ),
           SizedBox(
-            height: 15,
+            height: 22,
           ),
           Container(
               height: 40,
