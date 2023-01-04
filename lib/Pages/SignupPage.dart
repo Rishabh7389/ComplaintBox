@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
+import 'package:flutter_application_1/Pages/LoginPage.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -9,26 +10,39 @@ class SignupPage extends StatelessWidget {
     return Material(
       child: Column(
         children: [
-          SizedBox(height: 70),
+          SizedBox(height: 100),
           Text(
             "Sign Up",
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 147, 19, 198)),
           ),
           SizedBox(
-            height: 10,
+            height: 15,
           ),
-          Text("Create an Accont,its free"),
+          Text(
+            "Create an Accont,its free",
+            style: TextStyle(),
+          ),
           SizedBox(
             height: 40,
           ),
           Container(
+            height: 80,
+            width: 350,
             padding: const EdgeInsets.all(10),
             child: TextFormField(
               decoration: const InputDecoration(
                   border: OutlineInputBorder(), labelText: "Email"),
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           Container(
+            height: 80,
+            width: 350,
             padding: const EdgeInsets.all(10),
             child: TextFormField(
               obscureText: true,
@@ -36,7 +50,12 @@ class SignupPage extends StatelessWidget {
                   border: OutlineInputBorder(), labelText: "Password"),
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           Container(
+              height: 80,
+              width: 350,
               padding: const EdgeInsets.all(10),
               child: TextFormField(
                 obscureText: true,
@@ -45,11 +64,11 @@ class SignupPage extends StatelessWidget {
                     labelText: "Confirm Password"),
               )),
           SizedBox(
-            height: 10,
+            height: 30,
           ),
           Container(
               height: 50,
-              width: 300,
+              width: 330,
               child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -66,6 +85,34 @@ class SignupPage extends StatelessWidget {
                   ),
                   style: ElevatedButton.styleFrom(
                       primary: Color.fromARGB(255, 134, 20, 215)))),
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+            "--------------------------or-------------------------",
+            style: TextStyle(fontSize: 19),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+              height: 40,
+              width: 350,
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: ElevatedButton(
+                child: const Text(
+                  'Already have an account ',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 31, 161, 36)),
+              )),
         ],
       ),
     );
