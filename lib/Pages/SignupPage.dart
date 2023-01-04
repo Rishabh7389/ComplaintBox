@@ -23,7 +23,7 @@ class SignupPage extends StatelessWidget {
           ),
           Text(
             "Create an Accont,its free",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(),
           ),
           SizedBox(
             height: 40,
