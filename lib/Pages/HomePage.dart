@@ -67,6 +67,12 @@ class _HomePageState extends State<HomePage> {
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Registration No."),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return ("Please Enter Registration No.");
+                    }
+                    return null;
+                  },
                 ),
               ),
               Container(
@@ -74,12 +80,24 @@ class _HomePageState extends State<HomePage> {
                   child: TextFormField(
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), labelText: "Hostel Name"),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return ("Please Enter Hostel Name");
+                      }
+                      return null;
+                    },
                   )),
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(), labelText: "Room No."),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return ("Please Enter Room No.");
+                    }
+                    return null;
+                  },
                 ),
               ),
               Container(
@@ -88,6 +106,12 @@ class _HomePageState extends State<HomePage> {
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Your Complaint"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return ("Please Enter Your Complaint");
+                    }
+                    return null;
+                  },
                 ),
               ),
               Container(
@@ -96,6 +120,12 @@ class _HomePageState extends State<HomePage> {
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Managemnet Mobile No."),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return ("Please Enter Mobile No.");
+                    }
+                    return null;
+                  },
                 ),
               ),
               SizedBox(
