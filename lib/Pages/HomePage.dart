@@ -10,6 +10,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _formKey = GlobalKey<FormState>();
+  moveToSend(BuildContext context) {
+    if (_formKey.currentState!.validate()) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SendPage()),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +53,12 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(), labelText: "Name"),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return ("Please Enter Name");
+                    }
+                    return null;
+                  },
                 ),
               ),
               Container(
@@ -93,12 +109,7 @@ class _HomePageState extends State<HomePage> {
                       'Send',
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SendPage()),
-                      );
-                    },
+                    onPressed: () => moveToSend(context),
                     style: ElevatedButton.styleFrom(
                         primary: Color.fromARGB(255, 14, 143, 219)),
                   )),
