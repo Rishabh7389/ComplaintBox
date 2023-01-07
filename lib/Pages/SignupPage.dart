@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
 import 'package:flutter_application_1/Pages/LoginPage.dart';
 
 class SignupPage extends StatefulWidget {
-  const SignupPage({super.key});
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
 
   @override
   State<SignupPage> createState() => _SignupPageState();
@@ -51,7 +54,9 @@ class _SignupPageState extends State<SignupPage> {
               padding: const EdgeInsets.all(10),
               child: TextFormField(
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Email"),
+                  border: OutlineInputBorder(),
+                  labelText: "Email",
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
