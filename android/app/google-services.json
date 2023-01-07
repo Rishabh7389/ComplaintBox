@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "867703275120",
+    "project_id": "complaintbox-7ebce",
+    "storage_bucket": "complaintbox-7ebce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867703275120:android:07b63d49b78826b28bfeb5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867703275120-8ud94n9r9qtlfdhn7hqt9qln4vt23ej7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFvgUdoItuhuKKXm7HKGQaxbgOTRVwhd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867703275120-8ud94n9r9qtlfdhn7hqt9qln4vt23ej7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
