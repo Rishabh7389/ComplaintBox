@@ -38,6 +38,8 @@ class _LoginPageState extends State<LoginPage> {
           context,
           MaterialPageRoute(builder: (context) => HomePage()),
         );
+      }).onError((error, stackTrace) {
+        print("error ${toString()}");
       });
     }
   }
