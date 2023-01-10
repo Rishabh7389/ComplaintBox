@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
 import 'package:flutter_application_1/Pages/SignupPage.dart';
@@ -16,13 +17,28 @@ class _LoginPageState extends State<LoginPage> {
   String name = "";
 
   bool _showPwd = true;
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+
+    super.dispose();
+  }
+
   final _formKey = GlobalKey<FormState>();
   moveToHome(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
-      );
+      FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: emailcontroller.text, password: passwordcontroller.text)
+          .then((value) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
+      });
     }
   }
 
@@ -59,6 +75,7 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
+              controller: emailcontroller,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Email ",
@@ -78,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
+                controller: passwordcontroller,
                 obscureText: true,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),

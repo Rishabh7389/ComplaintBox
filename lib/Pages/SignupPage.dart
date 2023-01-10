@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
 import 'package:flutter_application_1/Pages/LoginPage.dart';
@@ -12,13 +13,31 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+
+    super.dispose();
+  }
+
   final _formKey = GlobalKey<FormState>();
   moveToHome(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
-      );
+      FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: emailcontroller.text, password: passwordcontroller.text)
+          .then((value) {
+        print("Created New Account");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
+      }).onError((error, stackTrace) {
+        print("Error ${error.toString()}");
+      });
     }
   }
 
@@ -54,11 +73,11 @@ class _SignupPageState extends State<SignupPage> {
               child: TextFormField(
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: "Email",
+                  labelText: "UserId",
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
+                    return 'Please enter your UserId';
                   }
                   return null;
                 },
@@ -72,12 +91,12 @@ class _SignupPageState extends State<SignupPage> {
               width: 350,
               padding: const EdgeInsets.all(10),
               child: TextFormField(
-                obscureText: true,
+                controller: emailcontroller,
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Password"),
+                    border: OutlineInputBorder(), labelText: "Email"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter password';
+                    return 'Please enter Email';
                   }
                   return null;
                 },
@@ -91,6 +110,7 @@ class _SignupPageState extends State<SignupPage> {
                 width: 350,
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
+                  controller: passwordcontroller,
                   obscureText: true,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),

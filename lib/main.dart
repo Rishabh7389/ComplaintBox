@@ -8,7 +8,10 @@ import 'package:flutter_application_1/Pages/SignupPage.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(MyApp());
 }
 
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/",
+      initialRoute: "/signup",
       routes: {
         "/": (context) => LoginPage(),
         "/home": (context) => HomePage(),
