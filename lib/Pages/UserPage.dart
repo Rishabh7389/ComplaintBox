@@ -18,14 +18,14 @@ class UserPage extends StatelessWidget {
       ),
       body: Material(
         child: Padding(
-          padding: const EdgeInsets.all(23.0),
+          padding: const EdgeInsets.all(28.0),
           child: Column(
             children: [
               Container(
                 child: Image.asset(
                   "assets/images/user.png",
                   width: 150,
-                  height: 150,
+                  height: 140,
                 ),
               ),
               SizedBox(
@@ -36,7 +36,7 @@ class UserPage extends StatelessWidget {
                 height: 130,
                 decoration: BoxDecoration(
                   border: Border.all(
-                      color: Color.fromARGB(255, 3, 225, 237), width: 2),
+                      color: Color.fromARGB(255, 31, 10, 186), width: 2),
                 ),
                 child: Column(children: [
                   Text(
@@ -53,8 +53,9 @@ class UserPage extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Text(
                         "With Responsive and Fresh Look and Feel",
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 15, 22, 220)),
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 12, 3, 132),
+                            fontSize: 16),
                       )),
                   SizedBox(
                     height: 10,
@@ -71,7 +72,7 @@ class UserPage extends StatelessWidget {
                         ),
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 228, 76, 76)),
+                            primary: Color.fromARGB(255, 228, 87, 82)),
                       )),
                 ]),
               ),
@@ -83,7 +84,7 @@ class UserPage extends StatelessWidget {
                 height: 130,
                 decoration: BoxDecoration(
                   border: Border.all(
-                      color: Color.fromARGB(255, 3, 225, 237), width: 2),
+                      color: Color.fromARGB(255, 31, 10, 186), width: 2),
                 ),
                 child: Column(
                   children: [
@@ -101,7 +102,8 @@ class UserPage extends StatelessWidget {
                         child: Text(
                           "With more information about Complaint",
                           style: TextStyle(
-                              color: Color.fromARGB(255, 15, 22, 220)),
+                              color: Color.fromARGB(255, 12, 3, 132),
+                              fontSize: 16),
                         )),
                     SizedBox(
                       height: 10,
@@ -131,7 +133,7 @@ class UserPage extends StatelessWidget {
                 height: 130,
                 decoration: BoxDecoration(
                   border: Border.all(
-                      color: Color.fromARGB(255, 3, 225, 237), width: 2),
+                      color: Color.fromARGB(255, 31, 10, 186), width: 2),
                 ),
                 child: Column(
                   children: [
@@ -149,7 +151,8 @@ class UserPage extends StatelessWidget {
                         child: Text(
                           "Introduced with Transcript Services",
                           style: TextStyle(
-                              color: Color.fromARGB(255, 15, 22, 220)),
+                              color: Color.fromARGB(255, 12, 3, 132),
+                              fontSize: 16),
                         )),
                     SizedBox(
                       height: 10,
