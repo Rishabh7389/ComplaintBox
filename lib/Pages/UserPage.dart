@@ -7,7 +7,7 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Color.fromARGB(255, 8, 55, 206),
         title: Center(
           child: const Text(
             "UserType",
@@ -17,73 +17,50 @@ class UserPage extends StatelessWidget {
         ),
       ),
       body: Material(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              child: Text(
-                "Select User Type",
-                style: TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
+        child: Padding(
+          padding: const EdgeInsets.all(23.0),
+          child: Column(
+            children: [
+              Container(
+                child: Image.asset(
+                  "assets/images/user.png",
+                  width: 150,
+                  height: 150,
                 ),
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: 350,
-              height: 130,
-              decoration: BoxDecoration(
-                border: Border.all(
-                    color: Color.fromARGB(255, 3, 225, 237), width: 2),
+              SizedBox(
+                height: 40,
               ),
-              child: Column(children: [
-                Text(
-                  "Student Login",
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.purple),
+              Container(
+                width: 350,
+                height: 130,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                      color: Color.fromARGB(255, 3, 225, 237), width: 2),
                 ),
-                Container(
-                    height: 50,
-                    width: 400,
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: ElevatedButton(
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(primary: Colors.purple),
-                    )),
-              ]),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: 350,
-              height: 130,
-              decoration: BoxDecoration(
-                border: Border.all(
-                    color: Color.fromARGB(255, 3, 225, 237), width: 2),
-              ),
-              child: Column(
-                children: [
+                child: Column(children: [
                   Text(
-                    "Admin Login",
+                    "Complaint Box For Student ",
                     style: TextStyle(
-                        fontSize: 25,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.purple),
+                        color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                  Text(
+                    "-----------------------------------------------------------------------",
                   ),
                   Container(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "With Responsive and Fresh Look and Feel",
+                        style:
+                            TextStyle(color: Color.fromARGB(255, 15, 22, 220)),
+                      )),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                      alignment: Alignment.bottomRight,
                       height: 50,
                       width: 400,
                       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -93,46 +70,109 @@ class UserPage extends StatelessWidget {
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                         onPressed: () {},
-                        style: ElevatedButton.styleFrom(primary: Colors.purple),
+                        style: ElevatedButton.styleFrom(
+                            primary: Color.fromARGB(255, 228, 76, 76)),
                       )),
-                ],
+                ]),
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: 350,
-              height: 130,
-              decoration: BoxDecoration(
-                border: Border.all(
-                    color: Color.fromARGB(255, 3, 225, 237), width: 2),
+              SizedBox(
+                height: 30,
               ),
-              child: Column(
-                children: [
-                  Text(
-                    "Guest Login",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.purple),
-                  ),
-                  Container(
-                      height: 50,
-                      width: 400,
-                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      child: ElevatedButton(
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        ),
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(primary: Colors.purple),
-                      )),
-                ],
+              Container(
+                width: 350,
+                height: 130,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                      color: Color.fromARGB(255, 3, 225, 237), width: 2),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      "Complaint Box For Admin ",
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 0, 0, 0)),
+                    ),
+                    Text(
+                        "-----------------------------------------------------------------------"),
+                    Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "With more information about Complaint",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 15, 22, 220)),
+                        )),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                        alignment: Alignment.bottomRight,
+                        height: 50,
+                        width: 400,
+                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        child: ElevatedButton(
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 55, 161, 188)),
+                        )),
+                  ],
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                width: 350,
+                height: 130,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                      color: Color.fromARGB(255, 3, 225, 237), width: 2),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      "Complaint Box For Guest",
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 0, 0, 0)),
+                    ),
+                    Text(
+                        "-----------------------------------------------------------------------"),
+                    Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Introduced with Transcript Services",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 15, 22, 220)),
+                        )),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                        alignment: Alignment.bottomRight,
+                        height: 50,
+                        width: 400,
+                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        child: ElevatedButton(
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 82, 195, 74)),
+                        )),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
