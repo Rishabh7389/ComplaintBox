@@ -5,6 +5,7 @@ import 'package:flutter_application_1/Pages/HomePage.dart';
 import 'package:flutter_application_1/Pages/LoginPage.dart';
 import 'package:flutter_application_1/Pages/SendPage.dart';
 import 'package:flutter_application_1/Pages/SignupPage.dart';
+import 'package:flutter_application_1/Pages/UserPage.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,8 +31,9 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(brightness: Brightness.dark),
       initialRoute: "/",
       routes: {
-        "/": (context) => LoginPage(),
+        "/": (context) => UserPage(),
         "/home": (context) => HomePage(),
+        "/User": (context) => UserPage(),
         "/login": (context) => LoginPage(),
         "/signup": (context) => SignupPage(),
         "/send": (context) => SendPage()
