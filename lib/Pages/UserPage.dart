@@ -23,13 +23,21 @@ class UserPage extends StatelessWidget {
               height: 30,
             ),
             Container(
-              child: Text(
-                "Select User Type",
-                style: TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
+              child: Column(
+                children: [
+                  Text(
+                    "Select User Type",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
+                  ),
+                  Container(
+                    child:
+                        ElevatedButton(onPressed: () {}, child: Text("Login")),
+                  )
+                ],
               ),
             ),
             SizedBox(
