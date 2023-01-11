@@ -60,8 +60,7 @@ class UserPage extends StatelessWidget {
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                       onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(255, 110, 24, 222)),
+                      style: ElevatedButton.styleFrom(primary: Colors.purple),
                     )),
               ]),
             ),
@@ -94,8 +93,7 @@ class UserPage extends StatelessWidget {
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                         onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 110, 24, 222)),
+                        style: ElevatedButton.styleFrom(primary: Colors.purple),
                       )),
                 ],
               ),
@@ -113,7 +111,7 @@ class UserPage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    "Admin Login",
+                    "Guest Login",
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -129,8 +127,7 @@ class UserPage extends StatelessWidget {
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                         onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 110, 24, 222)),
+                        style: ElevatedButton.styleFrom(primary: Colors.purple),
                       )),
                 ],
               ),
