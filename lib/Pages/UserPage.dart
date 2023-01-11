@@ -7,7 +7,7 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 8, 55, 206),
+        backgroundColor: Color.fromARGB(255, 199, 8, 206),
         title: Center(
           child: const Text(
             "UserType",
