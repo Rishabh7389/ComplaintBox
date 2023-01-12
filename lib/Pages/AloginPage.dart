@@ -47,6 +47,54 @@ class ALoginPage extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+              height: 50,
+              width: 390,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 50, 112, 206)),
+                  onPressed: () {},
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ))),
+          TextButton(
+            onPressed: () {},
+            child: const Text(
+              'Forgot Password ?',
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 73, 76, 78)),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "--------------------------or-------------------------",
+            style: TextStyle(fontSize: 19),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 50,
+            width: 390,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Colors.lightGreen),
+                onPressed: () {},
+                child: Text(
+                  'Create new CB account',
+                  style: TextStyle(color: Colors.white),
+                )),
+          ),
         ],
       ),
     );
