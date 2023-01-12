@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/AloginPage.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
 import 'package:flutter_application_1/Pages/LoginPage.dart';
 import 'package:flutter_application_1/Pages/SendPage.dart';
@@ -31,12 +32,13 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(brightness: Brightness.dark),
       initialRoute: "/",
       routes: {
-        "/": (context) => UserPage(),
+        "/": (context) => ALoginPage(),
         "/home": (context) => HomePage(),
         "/User": (context) => UserPage(),
         "/login": (context) => LoginPage(),
         "/signup": (context) => SignupPage(),
-        "/send": (context) => SendPage()
+        "/send": (context) => SendPage(),
+        "/Alogin": (context) => ALoginPage(),
       },
     );
   }
