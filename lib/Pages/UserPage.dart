@@ -8,7 +8,8 @@ class UserPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 130, 8, 206),
-        title: Center(
+        title: Padding(
+          padding: const EdgeInsets.all(80.0),
           child: const Text(
             "UserType",
             style: TextStyle(
@@ -181,6 +182,7 @@ class UserPage extends StatelessWidget {
           ),
         ),
       ),
+      drawer: Drawer(),
     );
   }
 }
