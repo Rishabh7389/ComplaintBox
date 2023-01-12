@@ -32,11 +32,11 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/User",
+      initialRoute: "/signup2",
       routes: {
         "/": (context) => SignupPage2(),
         "/home": (context) => HomePage(),
-        "/User": (context) => UserPage(),
+        "/user": (context) => UserPage(),
         "/login": (context) => LoginPage(),
         "/signup": (context) => SignupPage(),
         "/send": (context) => SendPage(),
