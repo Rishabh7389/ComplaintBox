@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
               child: ElevatedButton(
                 child: const Text(
                   'Create new CB account',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
                 onPressed: () {
                   Navigator.push(

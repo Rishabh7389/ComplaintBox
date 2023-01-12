@@ -15,27 +15,24 @@ class ALoginPage extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "WELCOME",
+            "Welcome",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Text(
             "Admin",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Container(
             padding: EdgeInsets.all(10),
             child: TextFormField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(), labelText: "Email")),
-          ),
-          SizedBox(
-            height: 20,
           ),
           Container(
             padding: EdgeInsets.all(10),
@@ -48,14 +45,14 @@ class ALoginPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Container(
               height: 50,
               width: 390,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 50, 112, 206)),
+                      primary: Color.fromARGB(255, 110, 24, 222)),
                   onPressed: () {},
                   child: Text(
                     "Login",
@@ -64,6 +61,9 @@ class ALoginPage extends StatelessWidget {
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ))),
+          SizedBox(
+            height: 10.0,
+          ),
           TextButton(
             onPressed: () {},
             child: const Text(
@@ -74,9 +74,6 @@ class ALoginPage extends StatelessWidget {
                   color: Color.fromARGB(255, 73, 76, 78)),
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
           Text(
             "--------------------------or-------------------------",
             style: TextStyle(fontSize: 19),
@@ -85,14 +82,15 @@ class ALoginPage extends StatelessWidget {
             height: 20,
           ),
           Container(
-            height: 50,
-            width: 390,
+            height: 40,
+            width: 300,
             child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.lightGreen),
+                style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 31, 161, 36)),
                 onPressed: () {},
                 child: Text(
                   'Create new CB account',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 )),
           ),
         ],
