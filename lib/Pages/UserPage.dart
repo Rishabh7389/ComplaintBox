@@ -8,14 +8,12 @@ class UserPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 130, 8, 206),
-        title: Padding(
-          padding: const EdgeInsets.all(80.0),
-          child: const Text(
-            "UserType",
-            style: TextStyle(
-                color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
-          ),
+        title: const Text(
+          "Select UserType",
+          style: TextStyle(
+              color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
         ),
+        centerTitle: true,
       ),
       body: Material(
         child: Padding(
@@ -30,7 +28,7 @@ class UserPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               Container(
                 width: 350,
