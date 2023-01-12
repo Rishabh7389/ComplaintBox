@@ -7,7 +7,7 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 199, 8, 206),
+        backgroundColor: Color.fromARGB(255, 130, 8, 206),
         title: Center(
           child: const Text(
             "UserType",
@@ -37,6 +37,7 @@ class UserPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                       color: Color.fromARGB(255, 31, 10, 186), width: 2),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(children: [
                   Text(
@@ -72,7 +73,7 @@ class UserPage extends StatelessWidget {
                         ),
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 228, 87, 82)),
+                            primary: Color.fromARGB(255, 194, 50, 45)),
                       )),
                 ]),
               ),
@@ -85,6 +86,7 @@ class UserPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                       color: Color.fromARGB(255, 31, 10, 186), width: 2),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   children: [
@@ -134,6 +136,7 @@ class UserPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                       color: Color.fromARGB(255, 31, 10, 186), width: 2),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
                   children: [
