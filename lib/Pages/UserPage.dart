@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/AloginPage.dart';
 import 'package:flutter_application_1/Pages/LoginPage.dart';
 
 class UserPage extends StatelessWidget {
@@ -126,7 +127,13 @@ class UserPage extends StatelessWidget {
                             'Login',
                             style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ALoginPage()),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                               primary: Color.fromARGB(255, 55, 161, 188)),
                         )),
