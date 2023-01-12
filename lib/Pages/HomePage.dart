@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Color.fromARGB(255, 115, 28, 214),
         title: const Text(
           "Complaint Box",
           style: TextStyle(color: Colors.white),

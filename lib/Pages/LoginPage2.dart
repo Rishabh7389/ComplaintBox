@@ -28,7 +28,7 @@ class _LoginPage2State extends State<LoginPage2> {
         child: Column(
           children: [
             Container(
-              child: Image.asset("assets/images/complain.jpg"),
+              child: Image.asset("assets/images/admin.jpg"),
             ),
             SizedBox(
               height: 20,
