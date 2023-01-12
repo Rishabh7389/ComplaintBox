@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/AloginPage.dart';
+import 'package:flutter_application_1/Pages/LoginPage2.dart';
 import 'package:flutter_application_1/Pages/LoginPage.dart';
 
 class UserPage extends StatelessWidget {
@@ -131,7 +131,7 @@ class UserPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ALoginPage()),
+                                  builder: (context) => LoginPage2()),
                             );
                           },
                           style: ElevatedButton.styleFrom(

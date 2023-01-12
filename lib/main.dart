@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/AloginPage.dart';
+import 'package:flutter_application_1/Pages/HomePage2.dart';
+import 'package:flutter_application_1/Pages/SignupPage2.dart';
+import 'package:flutter_application_1/Pages/LoginPage2.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
 import 'package:flutter_application_1/Pages/LoginPage.dart';
 import 'package:flutter_application_1/Pages/SendPage.dart';
@@ -30,15 +32,17 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/",
+      initialRoute: "/home2",
       routes: {
-        "/": (context) => ALoginPage(),
+        "/": (context) => SignupPage2(),
         "/home": (context) => HomePage(),
         "/User": (context) => UserPage(),
         "/login": (context) => LoginPage(),
         "/signup": (context) => SignupPage(),
         "/send": (context) => SendPage(),
-        "/Alogin": (context) => ALoginPage(),
+        "/login2": (context) => LoginPage2(),
+        "/signup2": (context) => SignupPage2(),
+        "/home2": (context) => HomePage2()
       },
     );
   }
