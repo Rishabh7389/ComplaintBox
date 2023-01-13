@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/LoginPage2.dart';
 
 class HomePage2 extends StatelessWidget {
   const HomePage2({super.key});
@@ -8,7 +9,7 @@ class HomePage2 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "All Complaint",
+          "All Complaints",
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
@@ -23,7 +24,13 @@ class HomePage2 extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               padding: EdgeInsets.all(10.0),
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginPage2(),
+                        ));
+                  },
                   child: Text(
                     "Logout",
                     style: TextStyle(color: Colors.white),
