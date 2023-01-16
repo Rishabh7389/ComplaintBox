@@ -1,3 +1,5 @@
+import 'dart:ffi';
+import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
@@ -12,6 +14,8 @@ class LoginPage2 extends StatefulWidget {
 }
 
 class _LoginPage2State extends State<LoginPage2> {
+  String name = "";
+  bool _showPwd = true;
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   @override
@@ -33,6 +37,8 @@ class _LoginPage2State extends State<LoginPage2> {
           context,
           MaterialPageRoute(builder: (context) => HomePage2()),
         );
+      }).onError((error, stackTrace) {
+        print("error ${toString()}");
       });
     }
   }
@@ -70,6 +76,10 @@ class _LoginPage2State extends State<LoginPage2> {
                 controller: emailcontroller,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(), labelText: "Email"),
+                onChanged: (value) {
+                  name = value;
+                  setState(() {});
+                },
                 validator: (value) {
                   if (value!.isEmpty) {
                     return ("Please Enter Email");
