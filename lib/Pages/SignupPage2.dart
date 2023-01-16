@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/HomePage2.dart';
 import 'package:flutter_application_1/Pages/LoginPage2.dart';
@@ -22,10 +24,16 @@ class _SignupPage2State extends State<SignupPage2> {
   final _formkey = GlobalKey<FormState>();
   moveToHome2(BuildContext context) {
     if (_formkey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage2()),
-      );
+      FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: emailcontroller.text, password: passwordcontroller.text)
+          .then((value) {
+        print("Created New Account");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage2()),
+        );
+      });
     }
   }
 
