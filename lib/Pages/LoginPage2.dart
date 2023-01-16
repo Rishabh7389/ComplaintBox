@@ -2,7 +2,7 @@ import 'dart:ffi';
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/HomePage.dart';
+
 import 'package:flutter_application_1/Pages/HomePage2.dart';
 import 'package:flutter_application_1/Pages/SignupPage2.dart';
 
@@ -34,7 +34,7 @@ class _LoginPage2State extends State<LoginPage2> {
           .then((value) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => HomePage2()),
         );
       }).onError((error, stackTrace) {
         print("error ${toString()}");
