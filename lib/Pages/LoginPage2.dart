@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/HomePage.dart';
 import 'package:flutter_application_1/Pages/HomePage2.dart';
@@ -11,13 +12,28 @@ class LoginPage2 extends StatefulWidget {
 }
 
 class _LoginPage2State extends State<LoginPage2> {
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    super.dispose();
+  }
+
   final _formKey = GlobalKey<FormState>();
   moveToHome2(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage2()),
-      );
+      FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: emailcontroller.text, password: passwordcontroller.text)
+          .then((value) {
+        print("Account Logged in");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage2()),
+        );
+      });
     }
   }
 
@@ -51,6 +67,7 @@ class _LoginPage2State extends State<LoginPage2> {
             Container(
               padding: EdgeInsets.all(10),
               child: TextFormField(
+                controller: emailcontroller,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(), labelText: "Email"),
                 validator: (value) {
@@ -64,6 +81,7 @@ class _LoginPage2State extends State<LoginPage2> {
             Container(
               padding: EdgeInsets.all(10),
               child: TextFormField(
+                controller: passwordcontroller,
                 obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
