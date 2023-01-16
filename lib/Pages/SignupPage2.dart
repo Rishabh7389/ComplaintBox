@@ -79,6 +79,7 @@ class _SignupPage2State extends State<SignupPage2> {
               width: 350,
               padding: const EdgeInsets.all(10),
               child: TextFormField(
+                controller: emailcontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(), labelText: "Email"),
                 validator: (value) {
@@ -97,6 +98,7 @@ class _SignupPage2State extends State<SignupPage2> {
                 width: 350,
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
+                  controller: passwordcontroller,
                   obscureText: true,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
