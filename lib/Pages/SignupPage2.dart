@@ -13,6 +13,12 @@ class _SignupPage2State extends State<SignupPage2> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    super.dispose();
+  }
+
   final _formkey = GlobalKey<FormState>();
   moveToHome2(BuildContext context) {
     if (_formkey.currentState!.validate()) {
