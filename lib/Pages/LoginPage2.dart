@@ -29,13 +29,12 @@ class _LoginPage2State extends State<LoginPage2> {
   moveToHome2(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
+          .signInWithEmailAndPassword(
               email: emailcontroller.text, password: passwordcontroller.text)
           .then((value) {
-        print("Account Logged in");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomePage2()),
+          MaterialPageRoute(builder: (context) => HomePage()),
         );
       }).onError((error, stackTrace) {
         print("error ${toString()}");

@@ -33,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
           .signInWithEmailAndPassword(
               email: emailcontroller.text, password: passwordcontroller.text)
           .then((value) {
-        print("Account Logged in");
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => HomePage()),
