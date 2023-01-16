@@ -9,6 +9,7 @@ import 'package:flutter_application_1/Pages/LoginPage.dart';
 import 'package:flutter_application_1/Pages/SendPage.dart';
 import 'package:flutter_application_1/Pages/SignupPage.dart';
 import 'package:flutter_application_1/Pages/UserPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

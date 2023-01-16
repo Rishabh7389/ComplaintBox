@@ -10,6 +10,9 @@ class SignupPage2 extends StatefulWidget {
 }
 
 class _SignupPage2State extends State<SignupPage2> {
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  @override
   final _formkey = GlobalKey<FormState>();
   moveToHome2(BuildContext context) {
     if (_formkey.currentState!.validate()) {
