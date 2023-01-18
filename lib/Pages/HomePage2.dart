@@ -18,7 +18,7 @@ class HomePage2 extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 10,
+              height: 50,
             ),
             Container(
               width: 350,
