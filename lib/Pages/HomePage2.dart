@@ -52,6 +52,42 @@ class HomePage2 extends StatelessWidget {
                     color: Color.fromARGB(255, 31, 10, 186), width: 2),
                 borderRadius: BorderRadius.circular(10),
               ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 350,
+              height: 100,
+              decoration: BoxDecoration(
+                border: Border.all(
+                    color: Color.fromARGB(255, 31, 10, 186), width: 2),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 350,
+              height: 100,
+              decoration: BoxDecoration(
+                border: Border.all(
+                    color: Color.fromARGB(255, 31, 10, 186), width: 2),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: 350,
+              height: 100,
+              decoration: BoxDecoration(
+                border: Border.all(
+                    color: Color.fromARGB(255, 31, 10, 186), width: 2),
+                borderRadius: BorderRadius.circular(10),
+              ),
             )
           ],
         ),
