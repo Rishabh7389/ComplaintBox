@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                   width: 390,
                   child: ElevatedButton(
                     child: const Text(
-                      'Send',
+                      'SenD',
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                     onPressed: () => moveToSend(context),
