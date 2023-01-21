@@ -56,7 +56,7 @@ class _LoginPage2State extends State<LoginPage2> {
               height: 20,
             ),
             Text(
-              "Welcome",
+              "Welcome admin",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             SizedBox(
