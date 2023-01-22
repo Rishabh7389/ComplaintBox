@@ -108,10 +108,10 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: "Your Complaint"),
+                      labelText: "Student Mobile No."),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return ("Please Enter Your Complaint");
+                      return ("Please Enter Your Mobile No.");
                     }
                     return null;
                   },
@@ -122,10 +122,10 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: "Managemnet Mobile No."),
+                      labelText: "Your Complaint"),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return ("Please Enter Mobile No.");
+                      return ("Please Enter Your Complaint");
                     }
                     return null;
                   },
