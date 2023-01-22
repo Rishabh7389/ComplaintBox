@@ -113,8 +113,7 @@ class _SignupPageState extends State<SignupPage> {
                   controller: passwordcontroller,
                   obscureText: true,
                   decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Confirm Password"),
+                      border: OutlineInputBorder(), labelText: " Password"),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter password';
