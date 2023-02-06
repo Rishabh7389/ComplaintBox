@@ -68,9 +68,9 @@ class _SignupPage2State extends State<SignupPage2> {
               padding: const EdgeInsets.all(10),
               child: TextFormField(
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "UserId",
-                ),
+                    border: OutlineInputBorder(),
+                    labelText: "UserId",
+                    prefixIcon: Icon(Icons.people)),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your UserId';
@@ -89,7 +89,9 @@ class _SignupPage2State extends State<SignupPage2> {
               child: TextFormField(
                 controller: emailcontroller,
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Email"),
+                    border: OutlineInputBorder(),
+                    labelText: "Email",
+                    prefixIcon: Icon(Icons.mail)),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter Email';
@@ -109,7 +111,9 @@ class _SignupPage2State extends State<SignupPage2> {
                   controller: passwordcontroller,
                   obscureText: true,
                   decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: "Password"),
+                      border: OutlineInputBorder(),
+                      labelText: "Password",
+                      prefixIcon: Icon(Icons.lock)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter password';
