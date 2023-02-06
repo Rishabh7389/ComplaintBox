@@ -74,8 +74,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               )),
           Container(
-            height: 80,
-            width: 400,
             padding: const EdgeInsets.all(10),
             child: TextFormField(
               controller: emailcontroller,
@@ -96,8 +94,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Container(
-            height: 80,
-            width: 400,
             padding: const EdgeInsets.all(10),
             child: TextFormField(
                 controller: passwordcontroller,
@@ -120,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Container(
               height: 50,
-              width: 400,
+              width: 420,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: ElevatedButton(
                 child: const Text(
