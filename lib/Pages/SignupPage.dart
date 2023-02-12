@@ -15,13 +15,19 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+  final confirmpasswordcontroller = TextEditingController();
   final useridcontroller = TextEditingController();
+  bool _isLoading = false;
+
+  String UserId = "";
+  String Email = "";
+  String Password = "";
 
   @override
   void dispose() {
     emailcontroller.dispose();
     passwordcontroller.dispose();
-    useridcontroller.dispose();
+    confirmpasswordcontroller.dispose();
 
     super.dispose();
   }
@@ -32,7 +38,9 @@ class _SignupPageState extends State<SignupPage> {
       if ((emailcontroller.text.split('@'))[1] == 'vitbhopal.ac.in')
         FirebaseAuth.instance
             .createUserWithEmailAndPassword(
-                email: emailcontroller.text, password: passwordcontroller.text)
+          email: emailcontroller.text,
+          password: passwordcontroller.text,
+        )
             .then((value) {
           print("Created New Account");
           Navigator.push(
@@ -80,6 +88,11 @@ class _SignupPageState extends State<SignupPage> {
                     border: OutlineInputBorder(),
                     labelText: "UserId",
                     prefixIcon: Icon(Icons.people)),
+                onChanged: (value) {
+                  setState(() {
+                    useridcontroller.text = value;
+                  });
+                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your UserId';
@@ -101,6 +114,11 @@ class _SignupPageState extends State<SignupPage> {
                     border: OutlineInputBorder(),
                     labelText: "Email",
                     prefixIcon: Icon(Icons.mail)),
+                onChanged: (value) {
+                  setState(() {
+                    Email = value;
+                  });
+                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter Email';
@@ -117,19 +135,25 @@ class _SignupPageState extends State<SignupPage> {
                 width: 350,
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
-                  controller: passwordcontroller,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
-                      border: OutlineInputBorder(),
-                      labelText: " Password"),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter password';
-                    }
-                    return null;
-                  },
-                )),
+                    controller: passwordcontroller,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        border: OutlineInputBorder(),
+                        labelText: " Password"),
+                    onChanged: (value) {
+                      setState(() {
+                        Password = value;
+                      });
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please Enter password";
+                      } else if (value.length < 8) {
+                        return "Password should be atleast 8";
+                      }
+                      return null;
+                    })),
             SizedBox(
               height: 20,
             ),
@@ -138,7 +162,7 @@ class _SignupPageState extends State<SignupPage> {
                 width: 350,
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
-                  controller: passwordcontroller,
+                  controller: confirmpasswordcontroller,
                   obscureText: true,
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.lock),
@@ -148,6 +172,10 @@ class _SignupPageState extends State<SignupPage> {
                     if (value == null || value.isEmpty) {
                       return 'Please enter password';
                     }
+                    if (value != passwordcontroller.text) {
+                      return 'Password not match';
+                    }
+
                     return null;
                   },
                 )),
