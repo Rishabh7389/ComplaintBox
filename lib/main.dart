@@ -38,13 +38,27 @@ class _MyAppState extends State<MyApp> {
         setState(() {
           isLoggedIn = value;
         });
+      } else {
+        setState(() {
+          isLoggedIn = false;
+        });
       }
+    });
+  }
+
+  String? uid;
+
+  getUserID() async {
+    uid = await helperService.getValue("uid").then((value) {
+      log(value.toString());
+      return uid;
     });
   }
 
   @override
   void initState() {
     getLoggedInStatus();
+    getUserID();
     super.initState();
   }
 

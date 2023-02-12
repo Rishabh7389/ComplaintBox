@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/helper/helper_service.dart';
 import 'package:flutter_application_1/constant/services/complaint_services.dart';
 
-
 class AuthServices {
   HelperService helperService = HelperService();
 
@@ -16,8 +15,7 @@ class AuthServices {
               .createUserWithEmailAndPassword(email: email, password: password))
           .user!;
       if (user != null) {
-        complaintServices.saveuserdata(fullName, email);
-        ComplaintServices(uid: user.uid);
+        ComplaintServices(uid: user.uid).saveuserdata(fullName, email);
         await helperService.setValue("uid", user.uid);
         await helperService.setValue("loggedinStatus", true);
       }
@@ -36,6 +34,16 @@ class AuthServices {
         await helperService.setValue("loggedinStatus", true);
       }
     } on FirebaseAuthException catch (e) {
+      log(e.toString());
+    }
+  }
+
+  Future signOut(context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      await helperService.setValue("loggedinStatus", false);
+      Navigator.pushNamedAndRemoveUntil(context, "/login", (route) => false);
+    } on Exception catch (e) {
       log(e.toString());
     }
   }

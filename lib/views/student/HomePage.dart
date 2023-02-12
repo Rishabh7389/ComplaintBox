@@ -1,15 +1,14 @@
-import 'dart:developer';
-import 'dart:ffi';
-import 'dart:ui';
+// ignore_for_file: file_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constant/services/auth_service.dart';
+import 'package:flutter_application_1/constant/services/complaint_services.dart';
 import 'package:flutter_application_1/views/authentication/student/LoginPage.dart';
-import 'package:flutter_application_1/views/SendPage.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -26,34 +25,14 @@ class _HomePageState extends State<HomePage> {
   TextEditingController mobilenocontroller = TextEditingController();
   TextEditingController compalintcontroller = TextEditingController();
 
-  moveToSend(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SendPage()),
-      );
-    }
-  }
-
-  Future<void> addcomplaints() {
-    return complaints
-        .add({
-          "Name": namecontroller.text,
-          "Registration no.": registrationcontroller.text,
-          "Hostel Name": hostelnamecontroller.text,
-          "Room no.": roomnocontroller.text,
-          "mobile no.": mobilenocontroller.text,
-          "Complaint": compalintcontroller.text,
-        })
-        .then((value) => log("complaint added $value"))
-        .catchError((error) => log("faild to add $error"));
-  }
+  ComplaintServices complaintServices = ComplaintServices();
+  AuthServices authServices = AuthServices();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 115, 28, 214),
+        backgroundColor: const Color.fromARGB(255, 115, 28, 214),
         title: const Text(
           "Complaint Box",
           style: TextStyle(color: Colors.white),
@@ -68,14 +47,14 @@ class _HomePageState extends State<HomePage> {
               Image.asset(
                 "assets/images/feedback.jpg",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "'Enter Your Details'",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -164,27 +143,43 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
-              Container(
+              SizedBox(
                   height: 50,
                   width: 390,
                   child: ElevatedButton(
+                    onPressed: (() async {
+                      if (_formKey.currentState!.validate()) {
+                        await complaintServices.createComplaint(
+                            compalintcontroller.text,
+                            registrationcontroller.text,
+                            namecontroller.text,
+                            mobilenocontroller.text,
+                            hostelnamecontroller.text,
+                            roomnocontroller.text);
+                        compalintcontroller.clear();
+                        registrationcontroller.clear();
+                        namecontroller.clear();
+                        mobilenocontroller.clear();
+                        hostelnamecontroller.clear();
+                        roomnocontroller.clear();
+                        Navigator.pushNamed(context, "/send");
+                      }
+                    }),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 14, 143, 219)),
                     child: const Text(
                       'Send',
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
-                    onPressed: (() {
-                      addcomplaints();
-                    }),
-                    style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 14, 143, 219)),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "Any Other Query? Call On 7999855204",
                 style: TextStyle(
                     fontSize: 18,
@@ -199,24 +194,21 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 800,
             ),
             Container(
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButton(
+                  onPressed: () {
+                    authServices.signOut(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 14, 143, 219)),
                   child: const Text(
                     'Logout',
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 14, 143, 219)),
                 )),
           ],
         ),

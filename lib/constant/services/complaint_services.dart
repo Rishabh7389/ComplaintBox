@@ -8,28 +8,31 @@ class ComplaintServices {
   HelperService helperService = HelperService();
   String? uid;
   ComplaintServices({this.uid});
+  CollectionReference user = FirebaseFirestore.instance.collection("user");
   CollectionReference complaints =
-      FirebaseFirestore.instance.collection("user");
+      FirebaseFirestore.instance.collection("complaints");
 
   Future saveuserdata(String fullName, String email) async {
-    return await complaints.doc(uid).set(
-        {"fullNmae": fullName, "Complaints": [], "email": email, "uid": uid});
+    return await user.doc(uid).set(
+        {"fullName": fullName, "complaints": [], "email": email, "uid": uid});
   }
 
-  Future createComplaint(
-      complaint, regisration, name, mobile, hostel, room) async {
+  Future<bool> createComplaint(String complaint, String regisration,
+      String name, String mobile, String hostel, String room) async {
     final uid = await helperService.getValue("uid");
     try {
-      complaints.doc(uid).collection("Complaints").add({
-        "complaint": complaints,
+    await user.doc(uid).collection("complaints").add({
+        "complaint": complaint,
         "hostel": hostel,
         "mobile": mobile,
         "room": room,
         "name": name,
         "registration": regisration
-      });
+      }).then((value) => log(value.toString()));
+      return true;
     } catch (e) {
       log(e.toString());
+      return false;
     }
   }
 
