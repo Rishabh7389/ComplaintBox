@@ -1,8 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/HomePage2.dart';
-import 'package:flutter_application_1/Pages/LoginPage2.dart';
+import 'package:flutter_application_1/constant/services/auth_service.dart';
+import 'package:flutter_application_1/views/authentication/admin/LoginPageAdmin.dart';
 
 class SignupPage2 extends StatefulWidget {
   const SignupPage2({super.key});
@@ -14,6 +14,7 @@ class SignupPage2 extends StatefulWidget {
 class _SignupPage2State extends State<SignupPage2> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+  final namecontroller = TextEditingController();
   @override
   void dispose() {
     emailcontroller.dispose();
@@ -22,20 +23,8 @@ class _SignupPage2State extends State<SignupPage2> {
   }
 
   final _formkey = GlobalKey<FormState>();
-  moveToHome2(BuildContext context) {
-    if (_formkey.currentState!.validate()) {
-      FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: emailcontroller.text, password: passwordcontroller.text)
-          .then((value) {
-        print("Created New Account");
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage2()),
-        );
-      });
-    }
-  }
+
+  AuthServices authServices = AuthServices();
 
   @override
   Widget build(BuildContext context) {
@@ -44,22 +33,22 @@ class _SignupPage2State extends State<SignupPage2> {
         key: _formkey,
         child: Column(
           children: [
-            SizedBox(height: 100),
-            Text(
+            const SizedBox(height: 100),
+            const Text(
               "Sign Up",
               style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 147, 19, 198)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Text(
+            const Text(
               "Create an Accont,its free",
               style: TextStyle(),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Container(
@@ -67,9 +56,10 @@ class _SignupPage2State extends State<SignupPage2> {
               width: 350,
               padding: const EdgeInsets.all(10),
               child: TextFormField(
+                controller: namecontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: "UserId",
+                    labelText: "Name",
                     prefixIcon: Icon(Icons.people)),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -79,7 +69,7 @@ class _SignupPage2State extends State<SignupPage2> {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -100,7 +90,7 @@ class _SignupPage2State extends State<SignupPage2> {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -121,31 +111,41 @@ class _SignupPage2State extends State<SignupPage2> {
                     return null;
                   },
                 )),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Container(
+            SizedBox(
                 height: 50,
                 width: 330,
                 child: ElevatedButton(
-                    onPressed: () => moveToHome2(context),
-                    child: Text(
+                    onPressed: () {
+                      if (_formkey.currentState!.validate() &&
+                          ((emailcontroller.text.split('@'))[1] ==
+                              'vitbhopal.ac.in')) {
+                        authServices.signupuser(emailcontroller.text,
+                            passwordcontroller.text, namecontroller.text);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, "/homeadmin", (route) => false);
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 134, 20, 215)),
+                    child: const Text(
                       "Sign Up",
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 134, 20, 215)))),
-            SizedBox(
+                    ))),
+            const SizedBox(
               height: 30,
             ),
-            Text(
+            const Text(
               "--------------------------or-------------------------",
               style: TextStyle(fontSize: 19),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
@@ -153,18 +153,19 @@ class _SignupPage2State extends State<SignupPage2> {
                 width: 350,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage2()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 31, 161, 36)),
                   child: const Text(
                     'Already have an account ',
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginPage2()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 31, 161, 36)),
                 )),
           ],
         ),

@@ -1,10 +1,10 @@
-import 'dart:ffi';
-import 'dart:ui';
-import 'package:firebase_auth/firebase_auth.dart';
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
-import 'package:flutter_application_1/Pages/HomePage2.dart';
-import 'package:flutter_application_1/Pages/SignupPage2.dart';
+import 'package:flutter_application_1/views/authentication/admin/SignupPageAdmin.dart';
+
+import '../../../constant/services/auth_service.dart';
 
 class LoginPage2 extends StatefulWidget {
   const LoginPage2({super.key});
@@ -26,21 +26,8 @@ class _LoginPage2State extends State<LoginPage2> {
   }
 
   final _formKey = GlobalKey<FormState>();
-  moveToHome2(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-              email: emailcontroller.text, password: passwordcontroller.text)
-          .then((value) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage2()),
-        );
-      }).onError((error, stackTrace) {
-        print("error ${toString()}");
-      });
-    }
-  }
+
+  AuthServices authServices = AuthServices();
 
   @override
   Widget build(BuildContext context) {
@@ -52,28 +39,28 @@ class _LoginPage2State extends State<LoginPage2> {
             Container(
               child: Image.asset("assets/images/admin.jpg"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               "Welcome",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Admin",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: TextFormField(
                 controller: emailcontroller,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Email",
                     prefixIcon: Icon(Icons.mail)),
@@ -90,11 +77,11 @@ class _LoginPage2State extends State<LoginPage2> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: TextFormField(
                 controller: passwordcontroller,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Password",
                     prefixIcon: Icon(Icons.lock)),
@@ -108,24 +95,32 @@ class _LoginPage2State extends State<LoginPage2> {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
                 height: 50,
                 width: 390,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 110, 24, 222)),
-                    onPressed: () => moveToHome2(context),
-                    child: Text(
+                        backgroundColor:
+                            const Color.fromARGB(255, 110, 24, 222)),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        authServices.signInUser(
+                            emailcontroller.text, passwordcontroller.text);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, "/homeadmin", (route) => false);
+                      }
+                    },
+                    child: const Text(
                       "Login",
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ))),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             TextButton(
@@ -138,24 +133,26 @@ class _LoginPage2State extends State<LoginPage2> {
                     color: Color.fromARGB(255, 73, 76, 78)),
               ),
             ),
-            Text(
+            const Text(
               "--------------------------or-------------------------",
               style: TextStyle(fontSize: 19),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               height: 40,
               width: 300,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 31, 161, 36)),
+                      primary: const Color.fromARGB(255, 31, 161, 36)),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignupPage2()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignupPage2()));
                   },
-                  child: Text(
+                  child: const Text(
                     'Create new CB account',
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   )),

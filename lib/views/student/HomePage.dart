@@ -6,8 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/LoginPage.dart';
-import 'package:flutter_application_1/Pages/SendPage.dart';
+import 'package:flutter_application_1/views/authentication/student/LoginPage.dart';
+import 'package:flutter_application_1/views/SendPage.dart';
 
 class HomePage extends StatefulWidget {
   @override

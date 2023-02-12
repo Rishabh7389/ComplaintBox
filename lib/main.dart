@@ -1,25 +1,52 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/HomePage2.dart';
-import 'package:flutter_application_1/Pages/SignupPage2.dart';
-import 'package:flutter_application_1/Pages/LoginPage2.dart';
-import 'package:flutter_application_1/Pages/HomePage.dart';
-import 'package:flutter_application_1/Pages/LoginPage.dart';
-import 'package:flutter_application_1/Pages/SendPage.dart';
-import 'package:flutter_application_1/Pages/SignupPage.dart';
-import 'package:flutter_application_1/Pages/UserPage.dart';
+import 'package:flutter_application_1/constant/helper/helper_service.dart';
+import 'package:flutter_application_1/views/admin/HomePageAdmin.dart';
+import 'package:flutter_application_1/views/authentication/admin/SignupPageAdmin.dart';
+import 'package:flutter_application_1/views/authentication/admin/LoginPageAdmin.dart';
+import 'package:flutter_application_1/views/student/HomePage.dart';
+import 'package:flutter_application_1/views/authentication/student/LoginPage.dart';
+import 'package:flutter_application_1/views/SendPage.dart';
+import 'package:flutter_application_1/views/authentication/student/SignupPage.dart';
+import 'package:flutter_application_1/views/authentication/SelectuserPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  HelperService helperService = HelperService();
+
+  late bool isLoggedIn;
+
+  getLoggedInStatus() async {
+    await helperService.getValue("loggedinStatus").then((value) {
+      log(value.toString());
+      if (value != null) {
+        setState(() {
+          isLoggedIn = value;
+        });
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    getLoggedInStatus();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +58,16 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/",
+      initialRoute: isLoggedIn ? "/home" : "/selectUser",
       routes: {
-        "/": (context) => HomePage(),
         "/home": (context) => HomePage(),
-        "/user": (context) => UserPage(),
-        "/login": (context) => LoginPage(),
+        "/selectUser": (context) => const UserPage(),
+        "/login": (context) => const LoginPage(),
         "/signup": (context) => SignupPage(),
-        "/send": (context) => SendPage(),
-        "/login2": (context) => LoginPage2(),
-        "/signup2": (context) => SignupPage2(),
-        "/home2": (context) => HomePage2()
+        "/send": (context) => const SendPage(),
+        "/loginadmin": (context) => const LoginPage2(),
+        "/signupadmin": (context) => const SignupPage2(),
+        "/homeadmin": (context) => const HomePage2()
       },
     );
   }

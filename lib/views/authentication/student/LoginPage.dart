@@ -1,9 +1,6 @@
-import 'dart:ffi';
-import 'dart:ui';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/HomePage.dart';
-import 'package:flutter_application_1/Pages/SignupPage.dart';
+import 'package:flutter_application_1/constant/services/auth_service.dart';
+import 'package:flutter_application_1/views/authentication/student/SignupPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -27,21 +24,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   final _formKey = GlobalKey<FormState>();
-  moveToHome(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-              email: emailcontroller.text, password: passwordcontroller.text)
-          .then((value) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage()),
-        );
-      }).onError((error, stackTrace) {
-        print("error ${toString()}");
-      });
-    }
-  }
+
+  AuthServices authServices = AuthServices();
 
   @override
   Widget build(BuildContext context) {
@@ -53,14 +37,14 @@ class _LoginPageState extends State<LoginPage> {
           Image.asset(
             "assets/images/student.jpg",
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
-          Text(
+          const Text(
             "Welcome ",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8.0,
           ),
           Container(
@@ -111,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 }),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           Container(
@@ -119,15 +103,22 @@ class _LoginPageState extends State<LoginPage> {
               width: 420,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    authServices.signInUser(
+                        emailcontroller.text, passwordcontroller.text);
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, "/home", (route) => false);
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: const Color.fromARGB(255, 110, 24, 222)),
                 child: const Text(
                   'Login',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
-                onPressed: () => moveToHome(context),
-                style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 110, 24, 222)),
               )),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           TextButton(
@@ -140,11 +131,11 @@ class _LoginPageState extends State<LoginPage> {
                   color: Color.fromARGB(255, 73, 76, 78)),
             ),
           ),
-          Text(
+          const Text(
             "--------------------------or-------------------------",
             style: TextStyle(fontSize: 19),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
@@ -152,10 +143,6 @@ class _LoginPageState extends State<LoginPage> {
               width: 300,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: ElevatedButton(
-                child: const Text(
-                  'Create new CB account',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -163,7 +150,11 @@ class _LoginPageState extends State<LoginPage> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 31, 161, 36)),
+                    backgroundColor: const Color.fromARGB(255, 31, 161, 36)),
+                child: const Text(
+                  'Create new CB account',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               )),
         ],
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Pages/HomePage.dart';
+import 'package:flutter_application_1/views/student/HomePage.dart';
 
 class SendPage extends StatelessWidget {
   const SendPage({super.key});
