@@ -15,6 +15,7 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+
   @override
   void dispose() {
     emailcontroller.dispose();
@@ -26,18 +27,19 @@ class _SignupPageState extends State<SignupPage> {
   final _formKey = GlobalKey<FormState>();
   moveToHome(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: emailcontroller.text, password: passwordcontroller.text)
-          .then((value) {
-        print("Created New Account");
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage()),
-        );
-      }).onError((error, stackTrace) {
-        print("Error ${error.toString()}");
-      });
+      if ((emailcontroller.text.split('@'))[1] == 'vitbhopal.ac.in')
+        FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: emailcontroller.text, password: passwordcontroller.text)
+            .then((value) {
+          print("Created New Account");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
+        }).onError((error, stackTrace) {
+          print("Error ${error.toString()}");
+        });
     }
   }
 
@@ -104,6 +106,27 @@ class _SignupPageState extends State<SignupPage> {
                 },
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+                height: 80,
+                width: 350,
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                  controller: passwordcontroller,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
+                      border: OutlineInputBorder(),
+                      labelText: " Password"),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter password';
+                    }
+                    return null;
+                  },
+                )),
             SizedBox(
               height: 20,
             ),

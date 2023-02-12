@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
+
   moveToSend(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       Navigator.push(
