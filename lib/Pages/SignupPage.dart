@@ -17,7 +17,6 @@ class _SignupPageState extends State<SignupPage> {
   final passwordcontroller = TextEditingController();
   final confirmpasswordcontroller = TextEditingController();
   final useridcontroller = TextEditingController();
-  bool _isLoading = false;
 
   String UserId = "";
   String Email = "";
@@ -43,6 +42,7 @@ class _SignupPageState extends State<SignupPage> {
         )
             .then((value) {
           print("Created New Account");
+          print(value.user!.email);
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => HomePage()),
@@ -83,7 +83,6 @@ class _SignupPageState extends State<SignupPage> {
               width: 350,
               padding: const EdgeInsets.all(10),
               child: TextFormField(
-                controller: useridcontroller,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "UserId",

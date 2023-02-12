@@ -1,5 +1,8 @@
+import 'dart:developer';
+import 'dart:ffi';
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +16,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
+  CollectionReference complaints =
+      FirebaseFirestore.instance.collection("user");
+
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController registrationcontroller = TextEditingController();
+  TextEditingController hostelnamecontroller = TextEditingController();
+  TextEditingController roomnocontroller = TextEditingController();
+  TextEditingController mobilenocontroller = TextEditingController();
+  TextEditingController compalintcontroller = TextEditingController();
 
   moveToSend(BuildContext context) {
     if (_formKey.currentState!.validate()) {
@@ -21,6 +33,20 @@ class _HomePageState extends State<HomePage> {
         MaterialPageRoute(builder: (context) => SendPage()),
       );
     }
+  }
+
+  Future<void> addcomplaints() {
+    return complaints
+        .add({
+          "Name": namecontroller.text,
+          "Registration no.": registrationcontroller.text,
+          "Hostel Name": hostelnamecontroller.text,
+          "Room no.": roomnocontroller.text,
+          "mobile no.": mobilenocontroller.text,
+          "Complaint": compalintcontroller.text,
+        })
+        .then((value) => log("complaint added $value"))
+        .catchError((error) => log("faild to add $error"));
   }
 
   @override
@@ -55,6 +81,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
+                  controller: namecontroller,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(), labelText: "Name"),
                   validator: (value) {
@@ -68,6 +95,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
+                  controller: registrationcontroller,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Registration No."),
@@ -82,6 +110,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                   padding: const EdgeInsets.all(10),
                   child: TextFormField(
+                    controller: hostelnamecontroller,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), labelText: "Hostel Name"),
                     validator: (value) {
@@ -94,6 +123,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
+                  controller: roomnocontroller,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(), labelText: "Room No."),
                   validator: (value) {
@@ -107,6 +137,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
+                  controller: mobilenocontroller,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Student Mobile No."),
@@ -121,6 +152,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
+                  controller: compalintcontroller,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Your Complaint"),
@@ -143,7 +175,9 @@ class _HomePageState extends State<HomePage> {
                       'Send',
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
-                    onPressed: () => moveToSend(context),
+                    onPressed: (() {
+                      addcomplaints();
+                    }),
                     style: ElevatedButton.styleFrom(
                         primary: Color.fromARGB(255, 14, 143, 219)),
                   )),
