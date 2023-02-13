@@ -50,8 +50,8 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
               const Text(
-                "'Enter Your Details'",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                "Enter Your Details",
+                style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
@@ -61,7 +61,11 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   controller: namecontroller,
                   decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: "Name"),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 3, color: Colors.greenAccent)),
+                      border: OutlineInputBorder(),
+                      labelText: "Name"),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return ("Please Enter Name");
@@ -75,6 +79,9 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   controller: registrationcontroller,
                   decoration: const InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 3, color: Colors.greenAccent)),
                       border: OutlineInputBorder(),
                       labelText: "Registration No."),
                   validator: (value) {
@@ -90,7 +97,11 @@ class _HomePageState extends State<HomePage> {
                   child: TextFormField(
                     controller: hostelnamecontroller,
                     decoration: const InputDecoration(
-                        border: OutlineInputBorder(), labelText: "Hostel Name"),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                width: 3, color: Colors.greenAccent)),
+                        border: OutlineInputBorder(),
+                        labelText: "Hostel Name"),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return ("Please Enter Hostel Name");
@@ -103,7 +114,11 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   controller: roomnocontroller,
                   decoration: const InputDecoration(
-                      border: OutlineInputBorder(), labelText: "Room No."),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 3, color: Colors.greenAccent)),
+                      border: OutlineInputBorder(),
+                      labelText: "Room No."),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return ("Please Enter Room No.");
@@ -117,6 +132,9 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   controller: mobilenocontroller,
                   decoration: const InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 3, color: Colors.greenAccent)),
                       border: OutlineInputBorder(),
                       labelText: "Student Mobile No."),
                   validator: (value) {
@@ -132,6 +150,9 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   controller: compalintcontroller,
                   decoration: const InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 3, color: Colors.greenAccent)),
                       border: OutlineInputBorder(),
                       labelText: "Your Complaint"),
                   validator: (value) {
@@ -179,11 +200,11 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               const Text(
-                "Any Other Query? Call On 7999855204",
+                "Any Other Query? Call On XXXXXXXXXX",
                 style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 17, 164, 22)),
+                    fontSize: 16,
+                    // fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 0, 0, 0)),
               )
             ],
           ),
