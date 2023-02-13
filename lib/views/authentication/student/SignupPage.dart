@@ -17,10 +17,6 @@ class _SignupPageState extends State<SignupPage> {
   final confirmpasswordcontroller = TextEditingController();
   final namecontroller = TextEditingController();
 
-  String UserId = "";
-  String Email = "";
-  String Password = "";
-
   @override
   void dispose() {
     emailcontroller.dispose();
@@ -90,11 +86,6 @@ class _SignupPageState extends State<SignupPage> {
                     border: OutlineInputBorder(),
                     labelText: "Email",
                     prefixIcon: Icon(Icons.mail)),
-                onChanged: (value) {
-                  setState(() {
-                    Email = value;
-                  });
-                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter Email';
@@ -117,11 +108,6 @@ class _SignupPageState extends State<SignupPage> {
                         prefixIcon: Icon(Icons.lock),
                         border: OutlineInputBorder(),
                         labelText: " Password"),
-                    onChanged: (value) {
-                      setState(() {
-                        Password = value;
-                      });
-                    },
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Please Enter password";
@@ -158,7 +144,7 @@ class _SignupPageState extends State<SignupPage> {
             const SizedBox(
               height: 30,
             ),
-            Container(
+            SizedBox(
                 height: 50,
                 width: 330,
                 child: ElevatedButton(

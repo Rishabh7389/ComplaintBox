@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/services/auth_service.dart';
 import 'package:flutter_application_1/views/authentication/student/SignupPage.dart';
@@ -12,7 +14,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String name = "";
 
-  bool _showPwd = true;
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   @override
@@ -112,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(255, 110, 24, 222)),
+                    backgroundColor: const Color.fromARGB(255, 110, 24, 222)),
                 child: const Text(
                   'Login',
                   style: TextStyle(fontSize: 18, color: Colors.white),
@@ -146,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignupPage()),
+                    MaterialPageRoute(builder: (context) => const SignupPage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(

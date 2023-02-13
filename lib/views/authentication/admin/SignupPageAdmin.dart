@@ -15,6 +15,7 @@ class _SignupPage2State extends State<SignupPage2> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   final namecontroller = TextEditingController();
+  final confirmpasscontroller = TextEditingController();
   @override
   void dispose() {
     emailcontroller.dispose();
@@ -98,16 +99,42 @@ class _SignupPage2State extends State<SignupPage2> {
                 width: 350,
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
-                  controller: passwordcontroller,
+                    controller: passwordcontroller,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        border: OutlineInputBorder(),
+                        labelText: " Password"),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Please Enter password";
+                      } else if (value.length < 8) {
+                        return "Password should be atleast 8";
+                      }
+                      return null;
+                    })),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+                height: 80,
+                width: 350,
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                  controller: confirmpasscontroller,
                   obscureText: true,
                   decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
                       border: OutlineInputBorder(),
-                      labelText: "Password",
-                      prefixIcon: Icon(Icons.lock)),
+                      labelText: " Confirm Password"),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter password';
                     }
+                    if (value != passwordcontroller.text) {
+                      return 'Password not match';
+                    }
+
                     return null;
                   },
                 )),

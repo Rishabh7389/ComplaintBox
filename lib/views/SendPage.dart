@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/student/HomePage.dart';
 
@@ -76,7 +78,7 @@ class SendPage extends StatelessWidget {
           SizedBox(
             height: 22,
           ),
-          Container(
+          SizedBox(
               height: 40,
               width: 300,
               child: ElevatedButton(
@@ -86,14 +88,15 @@ class SendPage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.purple),
                   child: Text(
                     "Report Another Complaint",
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
-                  ),
-                  style: ElevatedButton.styleFrom(primary: Colors.purple))),
+                  ))),
         ],
       ),
     );

@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_final_fields, deprecated_member_use
 
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,6 @@ class LoginPage2 extends StatefulWidget {
 
 class _LoginPage2State extends State<LoginPage2> {
   String name = "";
-  bool _showPwd = true;
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   @override
@@ -36,9 +35,7 @@ class _LoginPage2State extends State<LoginPage2> {
         key: _formKey,
         child: Column(
           children: [
-            Container(
-              child: Image.asset("assets/images/admin.jpg"),
-            ),
+            Image.asset("assets/images/admin.jpg"),
             const SizedBox(
               height: 20,
             ),

@@ -1,10 +1,9 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/services/auth_service.dart';
 import 'package:flutter_application_1/constant/services/complaint_services.dart';
-import 'package:flutter_application_1/views/authentication/student/LoginPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
