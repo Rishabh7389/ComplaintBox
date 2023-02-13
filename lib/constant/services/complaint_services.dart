@@ -12,16 +12,23 @@ class ComplaintServices {
   CollectionReference complaints =
       FirebaseFirestore.instance.collection("complaints");
 
-  Future saveuserdata(String fullName, String email) async {
-    return await user.doc(uid).set(
-        {"fullName": fullName, "complaints": [], "email": email, "uid": uid});
+  Future saveuserdata(String fullName, String email, bool isAdmin) async {
+    return await user.doc(uid).set({
+      "fullName": fullName,
+      "complaints": [],
+      "email": email,
+      "uid": uid,
+      "isAdmin": isAdmin
+    });
   }
 
   Future<bool> createComplaint(String complaint, String regisration,
       String name, String mobile, String hostel, String room) async {
-    final uid = await helperService.getValue("uid");
     try {
-    await user.doc(uid).collection("complaints").add({
+      await user
+          .doc("u9kHbadGrwRMESFBuD0Zb5Z9Oho2")
+          .collection("complaints")
+          .add({
         "complaint": complaint,
         "hostel": hostel,
         "mobile": mobile,

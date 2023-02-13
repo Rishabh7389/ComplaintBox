@@ -32,7 +32,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   HelperService helperService = HelperService();
 
-  late bool isLoggedIn;
+  bool? isLoggedIn;
 
   getLoggedInStatus() async {
     await helperService.getValue("loggedinStatus").then((value) {
@@ -53,15 +53,17 @@ class _MyAppState extends State<MyApp> {
 
   getUserID() async {
     uid = await helperService.getValue("uid").then((value) {
-      log(value.toString());
+      uid = value;
       return uid;
     });
   }
 
+  String adminUId = "u9kHbadGrwRMESFBuD0Zb5Z9Oho2";
+
   @override
   void initState() {
-    getLoggedInStatus();
     getUserID();
+    getLoggedInStatus();
     super.initState();
   }
 
@@ -75,7 +77,9 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: isLoggedIn ? "/home" : "/home",
+      initialRoute: isLoggedIn!
+          ? (uid == adminUId ? "/homeadmin" : '/home')
+          : "/selectUser",
       routes: {
         "/home": (context) => HomePage(),
         "/selectUser": (context) => const UserPage(),

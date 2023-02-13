@@ -112,10 +112,8 @@ class _LoginPage2State extends State<LoginPage2> {
                             const Color.fromARGB(255, 110, 24, 222)),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        authServices.signInUser(
-                            emailcontroller.text, passwordcontroller.text);
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, "/homeadmin", (route) => false);
+                        authServices.signInUser(emailcontroller.text,
+                            passwordcontroller.text, context, true);
                       }
                     },
                     child: const Text(

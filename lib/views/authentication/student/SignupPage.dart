@@ -181,8 +181,11 @@ class _SignupPageState extends State<SignupPage> {
                               ((emailcontroller.text.split('@'))[1] ==
                                   'vitbhopal.ac.in'))
                             {
-                              authServices.signupuser(emailcontroller.text,
-                                  passwordcontroller.text, namecontroller.text),
+                              authServices.signupuser(
+                                  emailcontroller.text,
+                                  passwordcontroller.text,
+                                  namecontroller.text,
+                                  false),
                               Navigator.pushNamedAndRemoveUntil(
                                   context, "/home", (route) => false)
                             }

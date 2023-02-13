@@ -115,9 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     authServices.signInUser(
-                        emailcontroller.text, passwordcontroller.text);
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, "/home", (route) => false);
+                        emailcontroller.text, passwordcontroller.text, context, false);
                   }
                 },
                 style: ElevatedButton.styleFrom(

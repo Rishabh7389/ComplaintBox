@@ -1,10 +1,41 @@
 // ignore_for_file: prefer_const_constructors, file_names
 
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/views/authentication/admin/LoginPageAdmin.dart';
+import 'dart:developer';
 
-class HomePage2 extends StatelessWidget {
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constant/services/auth_service.dart';
+import 'package:flutter_application_1/views/widgets/complaint_container.dart';
+
+import '../../constant/helper/helper_service.dart';
+
+class HomePage2 extends StatefulWidget {
   const HomePage2({super.key});
+
+  @override
+  State<HomePage2> createState() => _HomePage2State();
+}
+
+class _HomePage2State extends State<HomePage2> {
+  HelperService helperService = HelperService();
+
+  AuthServices authServices = AuthServices();
+
+  String? uid;
+
+  getUserID() async {
+    uid = await helperService.getValue("uid").then((value) {
+      uid = value;
+      log(value.toString());
+      return uid;
+    });
+  }
+
+  @override
+  void initState() {
+    getUserID();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +58,9 @@ class HomePage2 extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginPage2(),
-                        ));
+                    authServices.signOut(context);
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, "/selectUser", (route) => false);
                   },
                   child: Text(
                     "Logout",
@@ -41,6 +70,43 @@ class HomePage2 extends StatelessWidget {
           ],
         ),
       ),
+      body: SafeArea(
+          child: FutureBuilder(
+        future: FirebaseFirestore.instance
+            .collection("user")
+            .doc("u9kHbadGrwRMESFBuD0Zb5Z9Oho2")
+            .collection('complaints')
+            .get(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Text("error");
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (snapshot.hasData) {
+            var data = snapshot.data!.docs;
+            return ListView.builder(
+                shrinkWrap: true,
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemCount: data.length,
+                itemBuilder: ((context, index) {
+                  var compData = data[index];
+                  return ComplaintContainer(
+                    complaintValue: compData['complaint'],
+                    nameValue: compData['name'],
+                    regValue: compData['registration'],
+                    hostelValue: compData['hostel'],
+                    roomValue: compData['room'],
+                    mobValue: compData['mobile'],
+                  );
+                }));
+          }
+          return SizedBox.shrink();
+        },
+      )),
     );
   }
 }
