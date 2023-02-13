@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/authentication/admin/LoginPageAdmin.dart';
 import 'package:flutter_application_1/views/authentication/student/LoginPage.dart';
+import 'package:flutter_application_1/views/guest/guestpage.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({super.key});
@@ -182,7 +183,13 @@ class UserPage extends StatelessWidget {
                         width: 400,
                         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const GuestPage()),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                               backgroundColor:
                                   const Color.fromARGB(255, 82, 195, 74)),
@@ -198,7 +205,6 @@ class UserPage extends StatelessWidget {
           ),
         ),
       ),
-      drawer: const Drawer(),
     );
   }
 }
