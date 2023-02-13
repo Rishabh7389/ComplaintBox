@@ -62,9 +62,16 @@ class _SignupPageState extends State<SignupPage> {
               child: TextFormField(
                 controller: namecontroller,
                 decoration: const InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
                     border: OutlineInputBorder(),
                     labelText: "Name",
-                    prefixIcon: Icon(Icons.people)),
+                    prefixIcon: Icon(
+                      Icons.people,
+                      color: Colors.blue,
+                    )),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your UserId';
@@ -83,9 +90,16 @@ class _SignupPageState extends State<SignupPage> {
               child: TextFormField(
                 controller: emailcontroller,
                 decoration: const InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                    ),
                     border: OutlineInputBorder(),
                     labelText: "Email",
-                    prefixIcon: Icon(Icons.mail)),
+                    prefixIcon: Icon(
+                      Icons.mail,
+                      color: Color.fromARGB(255, 200, 15, 83),
+                    )),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter Email';
@@ -105,7 +119,14 @@ class _SignupPageState extends State<SignupPage> {
                     controller: passwordcontroller,
                     obscureText: true,
                     decoration: const InputDecoration(
-                        prefixIcon: Icon(Icons.lock),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 3, color: Colors.greenAccent),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: Colors.black,
+                        ),
                         border: OutlineInputBorder(),
                         labelText: " Password"),
                     validator: (value) {
@@ -127,7 +148,14 @@ class _SignupPageState extends State<SignupPage> {
                   controller: confirmpasswordcontroller,
                   obscureText: true,
                   decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                      ),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.black,
+                      ),
                       border: OutlineInputBorder(),
                       labelText: " Confirm Password"),
                   validator: (value) {

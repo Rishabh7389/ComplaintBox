@@ -63,9 +63,15 @@ class _LoginPageState extends State<LoginPage> {
             child: TextFormField(
               controller: emailcontroller,
               decoration: const InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 3, color: Colors.greenAccent)),
                   border: OutlineInputBorder(),
                   labelText: "Email ",
-                  prefixIcon: Icon(Icons.mail)),
+                  prefixIcon: Icon(
+                    Icons.mail,
+                    color: Colors.red,
+                  )),
               onChanged: (value) {
                 name = value;
                 setState(() {});
@@ -84,9 +90,15 @@ class _LoginPageState extends State<LoginPage> {
                 controller: passwordcontroller,
                 obscureText: true,
                 decoration: const InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(width: 2, color: Colors.greenAccent)),
                     border: OutlineInputBorder(),
                     labelText: 'Password',
-                    prefixIcon: Icon(Icons.lock)),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Colors.black,
+                    )),
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Please Enter password";

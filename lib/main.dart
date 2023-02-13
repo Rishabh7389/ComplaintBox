@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: isLoggedIn ? "/home" : "/selectUser",
+      initialRoute: isLoggedIn ? "/home" : "/signupadmin",
       routes: {
         "/home": (context) => HomePage(),
         "/selectUser": (context) => const UserPage(),
