@@ -72,10 +72,6 @@ class _LoginPageState extends State<LoginPage> {
                     Icons.mail,
                     color: Colors.red,
                   )),
-              onChanged: (value) {
-                name = value;
-                setState(() {});
-              },
               validator: (value) {
                 if (value!.isEmpty) {
                   return ("Please Enter Email");

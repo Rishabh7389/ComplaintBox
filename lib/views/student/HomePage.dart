@@ -202,10 +202,22 @@ class _HomePageState extends State<HomePage> {
               const Text(
                 "Any Other Query? Call On XXXXXXXXXX",
                 style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     // fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 0, 0, 0)),
-              )
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Complaint Status",
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ))
             ],
           ),
         ),
