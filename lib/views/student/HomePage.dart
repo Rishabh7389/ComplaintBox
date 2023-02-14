@@ -209,15 +209,6 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 5,
               ),
-              TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Complaint Status",
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ))
             ],
           ),
         ),
