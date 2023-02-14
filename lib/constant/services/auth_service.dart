@@ -12,8 +12,13 @@ class AuthServices {
   HelperService helperService = HelperService();
 
   ComplaintServices complaintServices = ComplaintServices();
+
   Future signupuser(
-      String email, String password, String fullName, bool isAdmin) async {
+    String email,
+    String password,
+    String fullName,
+    bool isAdmin,
+  ) async {
     try {
       User user = (await FirebaseAuth.instance
               .createUserWithEmailAndPassword(email: email, password: password))
@@ -42,7 +47,6 @@ class AuthServices {
             context, isAdmin ? '/homeadmin' : "/home", (route) => false);
       }
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.toString(), Colors.red);
       log(e.toString());
     }
   }

@@ -39,16 +39,22 @@ class _LoginPage2State extends State<LoginPage2> {
             const SizedBox(
               height: 20,
             ),
-            const Text(
-              "Welcome",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            Text(
+              "ＷＥＬＣＯＭＥ",
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.purple),
             ),
-            const SizedBox(
+            SizedBox(
               height: 10,
             ),
-            const Text(
-              "Admin",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Text(
+              "ＡＤＭＩＮ",
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green),
             ),
             const SizedBox(
               height: 10,

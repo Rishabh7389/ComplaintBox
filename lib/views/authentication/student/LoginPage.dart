@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/services/auth_service.dart';
 import 'package:flutter_application_1/views/authentication/student/SignupPage.dart';
@@ -38,26 +40,27 @@ class _LoginPageState extends State<LoginPage> {
           Image.asset(
             "assets/images/student.jpg",
           ),
-          const SizedBox(
-            height: 20.0,
+          SizedBox(
+            height: 20,
           ),
-          const Text(
-            "Welcome ",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          Text(
+            "ＷＥＬＣＯＭＥ",
+            style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.purple),
           ),
-          const SizedBox(
-            height: 8.0,
+          SizedBox(
+            height: 10,
           ),
-          Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(10),
-              child: const Text(
-                'Hostellers',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              )),
+          Text(
+            "ＳＴＵＤＥＮＴＳ",
+            style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green),
+          ),
+          SizedBox(
+            height: 10,
+          ),
           Container(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
@@ -114,8 +117,8 @@ class _LoginPageState extends State<LoginPage> {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    authServices.signInUser(
-                        emailcontroller.text, passwordcontroller.text, context, false);
+                    authServices.signInUser(emailcontroller.text,
+                        passwordcontroller.text, context, false);
                   }
                 },
                 style: ElevatedButton.styleFrom(
