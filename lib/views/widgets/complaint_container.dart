@@ -33,7 +33,7 @@ class ComplaintContainer extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Complaint Status : $statusvalue",
+                  "Complaint Status : Complaint Pending",
                   style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,

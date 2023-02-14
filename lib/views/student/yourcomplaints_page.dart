@@ -36,6 +36,13 @@ class _YourComplaintsPageState extends State<YourComplaintsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Your Complaints",
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+        ),
+        centerTitle: true,
+      ),
       body: SafeArea(
           child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -44,7 +51,6 @@ class _YourComplaintsPageState extends State<YourComplaintsPage> {
             const SizedBox(
               height: 20,
             ),
-            Text("your complaints"),
             FutureBuilder(
               future: FirebaseFirestore.instance
                   .collection("user")
@@ -53,7 +59,7 @@ class _YourComplaintsPageState extends State<YourComplaintsPage> {
                   .get(),
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
-                  return Text("error");
+                  return const Text("error");
                 }
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   const Center(
