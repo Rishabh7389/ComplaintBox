@@ -7,6 +7,7 @@ import 'package:flutter_application_1/constant/helper/helper_service.dart';
 class ComplaintServices {
   HelperService helperService = HelperService();
   String? uid;
+
   ComplaintServices({this.uid});
   CollectionReference user = FirebaseFirestore.instance.collection("user");
   CollectionReference complaints =
@@ -23,7 +24,8 @@ class ComplaintServices {
   }
 
   Future<bool> createComplaint(String complaint, String regisration,
-      String name, String mobile, String hostel, String room) async {
+      String name, String mobile, String hostel, String room, status) async {
+    var userid = await helperService.getValue("uid");
     try {
       await user
           .doc("u9kHbadGrwRMESFBuD0Zb5Z9Oho2")
@@ -34,8 +36,18 @@ class ComplaintServices {
         "mobile": mobile,
         "room": room,
         "name": name,
-        "registration": regisration
+        "registration": regisration,
+        "status": status
       }).then((value) => log(value.toString()));
+      await user.doc(userid).collection("complaints").add({
+        "complaint": complaint,
+        "hostel": hostel,
+        "mobile": mobile,
+        "room": room,
+        "name": name,
+        "registration": regisration,
+        "status": status
+      });
       return true;
     } catch (e) {
       log(e.toString());

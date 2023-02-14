@@ -14,6 +14,7 @@ import 'package:flutter_application_1/views/authentication/student/LoginPage.dar
 import 'package:flutter_application_1/views/SendPage.dart';
 import 'package:flutter_application_1/views/authentication/student/SignupPage.dart';
 import 'package:flutter_application_1/views/authentication/SelectuserPage.dart';
+import 'package:flutter_application_1/views/student/yourcomplaints_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
@@ -52,7 +53,7 @@ class _MyAppState extends State<MyApp> {
   String? uid;
 
   getUserID() async {
-    uid = await helperService.getValue("uid").then((value) {
+    await helperService.getValue("uid").then((value) {
       uid = value;
       return uid;
     });
@@ -62,8 +63,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    getUserID();
     getLoggedInStatus();
+    getUserID();
     super.initState();
   }
 
@@ -89,7 +90,8 @@ class _MyAppState extends State<MyApp> {
         "/loginadmin": (context) => const LoginPage2(),
         "/signupadmin": (context) => const SignupPage2(),
         "/homeadmin": (context) => const HomePage2(),
-        "/guest": (context) => const GuestPage()
+        "/guest": (context) => const GuestPage(),
+        "/yourcomp": (context) => const YourComplaintsPage(),
       },
     );
   }

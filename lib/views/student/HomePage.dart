@@ -1,7 +1,10 @@
 // ignore_for_file: file_names, use_build_context_synchronously
 
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constant/helper/helper_service.dart';
 import 'package:flutter_application_1/constant/services/auth_service.dart';
 import 'package:flutter_application_1/constant/services/complaint_services.dart';
 
@@ -26,6 +29,32 @@ class _HomePageState extends State<HomePage> {
 
   ComplaintServices complaintServices = ComplaintServices();
   AuthServices authServices = AuthServices();
+
+  final firestoreInstance = FirebaseFirestore.instance;
+
+  String? userName;
+  String? userEmail;
+
+  HelperService helperService = HelperService();
+
+  getUserData() async {
+    var uid = await helperService.getValue("uid");
+    DocumentSnapshot userSnapshot =
+        await firestoreInstance.collection("user").doc(uid).get();
+    if (userSnapshot.exists) {
+      Map<String, dynamic> userData =
+          userSnapshot.data() as Map<String, dynamic>;
+      log('user data cast to Map: $userData');
+      userName = userData['fullName'];
+      userEmail = userData['email'];
+    }
+  }
+
+  @override
+  void initState() {
+    getUserData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,7 +207,8 @@ class _HomePageState extends State<HomePage> {
                             namecontroller.text,
                             mobilenocontroller.text,
                             hostelnamecontroller.text,
-                            roomnocontroller.text);
+                            roomnocontroller.text,
+                            "Complaint Pending");
                         compalintcontroller.clear();
                         registrationcontroller.clear();
                         namecontroller.clear();
@@ -214,26 +244,67 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const SizedBox(
-              height: 800,
-            ),
-            Container(
-                alignment: Alignment.bottomCenter,
-                child: ElevatedButton(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 85,
+              ),
+              Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: [
+                    Colors.purple.shade300,
+                    Colors.purple.shade600
+                  ])),
+                  child: Center(
+                      child: Text(
+                    "Name : $userName",
+                    style: const TextStyle(color: Colors.white, fontSize: 20),
+                  ))),
+              Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: [
+                    Colors.purple.shade300,
+                    Colors.purple.shade600
+                  ])),
+                  child: Center(
+                      child: Text(
+                    "Email : $userEmail",
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
+                  ))),
+              const SizedBox(
+                height: 50,
+              ),
+              TextButton(
                   onPressed: () {
-                    authServices.signOut(context);
+                    Navigator.pushNamed(context, '/yourcomp');
                   },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 14, 143, 219)),
                   child: const Text(
-                    'Logout',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                )),
-          ],
+                    "Your Complaints",
+                    style: TextStyle(fontSize: 20),
+                  )),
+              const SizedBox(
+                height: 450,
+              ),
+              Container(
+                  alignment: Alignment.bottomCenter,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      authServices.signOut(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 14, 143, 219)),
+                    child: const Text(
+                      'Logout',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                  )),
+            ],
+          ),
         ),
       ),
     );
