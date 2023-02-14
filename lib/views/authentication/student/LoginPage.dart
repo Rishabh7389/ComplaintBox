@@ -1,7 +1,5 @@
 // ignore_for_file: file_names
 
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/services/auth_service.dart';
 import 'package:flutter_application_1/views/authentication/student/SignupPage.dart';
@@ -40,25 +38,25 @@ class _LoginPageState extends State<LoginPage> {
           Image.asset(
             "assets/images/student.jpg",
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             "ＷＥＬＣＯＭＥ",
             style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Colors.purple),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Text(
+          const Text(
             "ＳＴＵＤＥＮＴＳ",
             style: TextStyle(
                 fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
