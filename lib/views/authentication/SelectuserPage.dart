@@ -143,64 +143,6 @@ class UserPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 350,
-                height: 130,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                      color: const Color.fromARGB(255, 31, 10, 186), width: 2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      "Complaint Box For Guest",
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                    const Text(
-                        "-----------------------------------------------------------------------"),
-                    Container(
-                        alignment: Alignment.center,
-                        // ignore: prefer_const_constructors
-                        child: Text(
-                          "Introduced with Transcript Services",
-                          style: const TextStyle(
-                              color: Color.fromARGB(255, 12, 3, 132),
-                              fontSize: 16),
-                        )),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                        alignment: Alignment.bottomRight,
-                        height: 50,
-                        width: 400,
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const GuestPage()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 82, 195, 74)),
-                          child: const Text(
-                            'Login',
-                            style: TextStyle(fontSize: 18, color: Colors.white),
-                          ),
-                        )),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
