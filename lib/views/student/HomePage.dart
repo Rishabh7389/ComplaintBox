@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 115, 28, 214),
+        backgroundColor: Color.fromARGB(255, 28, 62, 214),
         title: const Text(
           "Complaint Box",
           style: TextStyle(color: Colors.white),
@@ -221,8 +221,7 @@ class _HomePageState extends State<HomePage> {
                       }
                     }),
                     style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 14, 143, 219)),
+                        backgroundColor: Color.fromARGB(255, 14, 58, 219)),
                     child: const Text(
                       'Send',
                       style: TextStyle(fontSize: 18, color: Colors.white),
@@ -277,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                     "Email : $userEmail",
                     style: const TextStyle(color: Colors.white, fontSize: 15),
                   ))),
-                   Container(
+              Container(
                   height: 50,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: [

@@ -40,7 +40,7 @@ class _SignupPage2State extends State<SignupPage2> {
               style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 147, 19, 198)),
+                  color: Color.fromARGB(255, 19, 52, 198)),
             ),
             const SizedBox(
               height: 15,
@@ -173,15 +173,18 @@ class _SignupPage2State extends State<SignupPage2> {
                       if (_formkey.currentState!.validate() &&
                           ((emailcontroller.text.split('@'))[1] ==
                               'vitbhopal.ac.in')) {
-                        authServices.signupuser(emailcontroller.text,
-                            passwordcontroller.text, namecontroller.text, true, "admin");
+                        authServices.signupuser(
+                            emailcontroller.text,
+                            passwordcontroller.text,
+                            namecontroller.text,
+                            true,
+                            "admin");
                         Navigator.pushNamedAndRemoveUntil(
                             context, "/homeadmin", (route) => false);
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 134, 20, 215)),
+                        backgroundColor: Color.fromARGB(255, 20, 43, 215)),
                     child: const Text(
                       "Sign Up",
                       style: TextStyle(

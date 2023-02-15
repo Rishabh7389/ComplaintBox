@@ -35,7 +35,15 @@ class _LoginPage2State extends State<LoginPage2> {
         key: _formKey,
         child: Column(
           children: [
-            Image.asset("assets/images/admin.jpg"),
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(120),
+                bottomRight: Radius.circular(120),
+              ),
+              child: Image.asset(
+                "assets/images/admin.jpg",
+              ),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -44,7 +52,7 @@ class _LoginPage2State extends State<LoginPage2> {
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.purple),
+                  color: Color.fromARGB(255, 26, 34, 189)),
             ),
             const SizedBox(
               height: 10,
@@ -114,8 +122,7 @@ class _LoginPage2State extends State<LoginPage2> {
                 width: 390,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 110, 24, 222)),
+                        backgroundColor: Color.fromARGB(255, 24, 44, 222)),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         authServices.signInUser(emailcontroller.text,

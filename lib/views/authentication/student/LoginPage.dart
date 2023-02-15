@@ -35,8 +35,14 @@ class _LoginPageState extends State<LoginPage> {
       key: _formKey,
       child: Column(
         children: [
-          Image.asset(
-            "assets/images/student.jpg",
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(120),
+              bottomRight: Radius.circular(120),
+            ),
+            child: Image.asset(
+              "assets/images/student.jpg",
+            ),
           ),
           const SizedBox(
             height: 20,
@@ -46,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.purple),
+                color: Color.fromARGB(255, 53, 70, 202)),
           ),
           const SizedBox(
             height: 10,
@@ -120,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 110, 24, 222)),
+                    backgroundColor: Color.fromARGB(255, 35, 56, 215)),
                 child: const Text(
                   'Login',
                   style: TextStyle(fontSize: 18, color: Colors.white),

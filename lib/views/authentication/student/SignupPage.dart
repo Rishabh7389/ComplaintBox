@@ -46,7 +46,7 @@ class _SignupPageState extends State<SignupPage> {
                 style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 147, 19, 198)),
+                    color: Color.fromARGB(255, 19, 34, 198)),
               ),
               const SizedBox(
                 height: 15,
@@ -224,8 +224,7 @@ class _SignupPageState extends State<SignupPage> {
                               }
                           },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 134, 20, 215)),
+                          backgroundColor: Color.fromARGB(255, 20, 43, 215)),
                       child: const Text(
                         "Sign Up",
                         style: TextStyle(
