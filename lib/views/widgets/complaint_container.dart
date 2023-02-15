@@ -32,9 +32,9 @@ class ComplaintContainer extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                Text(
+                const Text(
                   "Complaint Status : Complaint Pending",
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold),

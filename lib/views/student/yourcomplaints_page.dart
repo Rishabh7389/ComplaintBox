@@ -37,7 +37,7 @@ class _YourComplaintsPageState extends State<YourComplaintsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Your Complaints",
           style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
         ),

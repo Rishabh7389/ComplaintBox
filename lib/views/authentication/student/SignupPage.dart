@@ -187,7 +187,7 @@ class _SignupPageState extends State<SignupPage> {
                                   namecontroller.text,
                                   false),
                               Navigator.pushNamedAndRemoveUntil(
-                                  context, "/home", (route) => false)
+                                  context, "/login", (route) => false)
                             }
                         },
                     style: ElevatedButton.styleFrom(
