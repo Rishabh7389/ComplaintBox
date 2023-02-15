@@ -54,7 +54,7 @@ class _HomePage2State extends State<HomePage2> {
           children: [
             Image.asset("assets/images/back1.png"),
             SizedBox(
-              height: 750,
+              height: 400,
             ),
             Container(
               decoration: BoxDecoration(

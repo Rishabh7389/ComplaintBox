@@ -9,7 +9,9 @@ class SendPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff2b3258),
       appBar: AppBar(
+        backgroundColor: Color(0xff2b3258),
         title: Text(
           "Message Status",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -21,7 +23,11 @@ class SendPage extends StatelessWidget {
           SizedBox(
             height: 80,
           ),
-          Image.asset("assets/images/sent.png"),
+          Image.asset(
+            "assets/images/mess.png",
+            height: 200,
+            width: 350,
+          ),
           SizedBox(
             height: 10,
           ),
@@ -29,7 +35,9 @@ class SendPage extends StatelessWidget {
               child: Text(
             "'Thank you'",
             style: TextStyle(
-                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.pink),
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 255, 255, 255)),
           )),
           SizedBox(
             height: 8,
@@ -40,7 +48,7 @@ class SendPage extends StatelessWidget {
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.purple),
+                  color: Color.fromARGB(255, 255, 255, 255)),
             ),
           ),
           SizedBox(
@@ -52,7 +60,7 @@ class SendPage extends StatelessWidget {
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue),
+                  color: Color.fromARGB(255, 255, 255, 255)),
             ),
           ),
           SizedBox(
@@ -64,7 +72,7 @@ class SendPage extends StatelessWidget {
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.green),
+                  color: Color.fromARGB(255, 255, 255, 255)),
             ),
           ),
           SizedBox(
@@ -73,7 +81,9 @@ class SendPage extends StatelessWidget {
           Text(
             "As Soon As Possible",
             style: TextStyle(
-                fontSize: 22, fontWeight: FontWeight.bold, color: Colors.red),
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 255, 255, 255)),
           ),
           SizedBox(
             height: 22,
@@ -88,8 +98,9 @@ class SendPage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xff2b3258),
+                      shadowColor: Color.fromARGB(255, 255, 255, 255)),
                   child: Text(
                     "Report Another Complaint",
                     style: TextStyle(

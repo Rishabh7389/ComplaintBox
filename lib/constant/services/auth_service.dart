@@ -13,19 +13,15 @@ class AuthServices {
 
   ComplaintServices complaintServices = ComplaintServices();
 
-  Future signupuser(
-    String email,
-    String password,
-    String fullName,
-    bool isAdmin,
-    String registration
-  ) async {
+  Future signupuser(String email, String password, String fullName,
+      bool isAdmin, String registration) async {
     try {
       User user = (await FirebaseAuth.instance
               .createUserWithEmailAndPassword(email: email, password: password))
           .user!;
       if (user != null) {
-        ComplaintServices(uid: user.uid).saveuserdata(fullName, email, isAdmin, registration);
+        ComplaintServices(uid: user.uid)
+            .saveuserdata(fullName, email, isAdmin, registration);
         await helperService.setValue("uid", user.uid);
         await helperService.setValue("isAdmin", isAdmin);
         await helperService.setValue("loggedinStatus", true);
