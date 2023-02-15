@@ -52,6 +52,7 @@ class _HomePage2State extends State<HomePage2> {
         backgroundColor: Color(0xff2b3258),
         child: ListView(
           children: [
+            Image.asset("assets/images/back1.png"),
             SizedBox(
               height: 750,
             ),
