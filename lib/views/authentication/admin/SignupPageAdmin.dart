@@ -34,13 +34,15 @@ class _SignupPage2State extends State<SignupPage2> {
         key: _formkey,
         child: Column(
           children: [
-            const SizedBox(height: 100),
+            const SizedBox(
+              height: 70,
+            ),
             const Text(
               "Sign Up",
               style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 19, 52, 198)),
+                  color: Color(0xff2b3258)),
             ),
             const SizedBox(
               height: 15,
@@ -60,13 +62,13 @@ class _SignupPage2State extends State<SignupPage2> {
                 controller: namecontroller,
                 decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(width: 3, color: Colors.greenAccent)),
+                        borderSide: BorderSide(
+                            width: 2, color: Color.fromARGB(255, 83, 85, 84))),
                     border: OutlineInputBorder(),
                     labelText: "Name",
                     prefixIcon: Icon(
                       Icons.people,
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 28, 27, 27),
                     )),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -87,13 +89,14 @@ class _SignupPage2State extends State<SignupPage2> {
                 controller: emailcontroller,
                 decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(width: 3, color: Colors.greenAccent)),
+                        borderSide: BorderSide(
+                            width: 2,
+                            color: Color.fromARGB(255, 98, 102, 100))),
                     border: OutlineInputBorder(),
                     labelText: "Email",
                     prefixIcon: Icon(
                       Icons.mail,
-                      color: Color.fromARGB(255, 235, 4, 4),
+                      color: Color.fromARGB(255, 22, 22, 22),
                     )),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -116,7 +119,8 @@ class _SignupPage2State extends State<SignupPage2> {
                     decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                                width: 3, color: Colors.greenAccent)),
+                                width: 2,
+                                color: Color.fromARGB(255, 90, 92, 91))),
                         prefixIcon: Icon(
                           Icons.lock,
                           color: Colors.black,
@@ -143,8 +147,9 @@ class _SignupPage2State extends State<SignupPage2> {
                   obscureText: true,
                   decoration: const InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 3, color: Colors.greenAccent)),
+                          borderSide: BorderSide(
+                              width: 2,
+                              color: Color.fromARGB(255, 106, 108, 107))),
                       prefixIcon: Icon(
                         Icons.lock,
                         color: Colors.black,
@@ -184,7 +189,7 @@ class _SignupPage2State extends State<SignupPage2> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 20, 43, 215)),
+                        backgroundColor: Color(0xff2b3258)),
                     child: const Text(
                       "Sign Up",
                       style: TextStyle(
@@ -215,7 +220,7 @@ class _SignupPage2State extends State<SignupPage2> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 31, 161, 36)),
+                      backgroundColor: Color(0xff2b3258)),
                   child: const Text(
                     'Already have an account ',
                     style: TextStyle(fontSize: 18, color: Colors.white),

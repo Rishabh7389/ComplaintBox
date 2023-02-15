@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               bottomRight: Radius.circular(120),
             ),
             child: Image.asset(
-              "assets/images/student.jpg",
+              "assets/images/studentq.jpg",
             ),
           ),
           const SizedBox(
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 53, 70, 202)),
+                color: Color(0xff2b3258)),
           ),
           const SizedBox(
             height: 10,
@@ -60,7 +60,9 @@ class _LoginPageState extends State<LoginPage> {
           const Text(
             "ＳＴＵＤＥＮＴＳ",
             style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff2b3258)),
           ),
           const SizedBox(
             height: 10,
@@ -71,13 +73,13 @@ class _LoginPageState extends State<LoginPage> {
               controller: emailcontroller,
               decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(width: 3, color: Colors.greenAccent)),
+                      borderSide: BorderSide(
+                          width: 2, color: Color.fromARGB(255, 152, 155, 154))),
                   border: OutlineInputBorder(),
                   labelText: "Email ",
                   prefixIcon: Icon(
                     Icons.mail,
-                    color: Colors.red,
+                    color: Color(0xff2b3258),
                   )),
               validator: (value) {
                 if (value!.isEmpty) {
@@ -94,13 +96,14 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
                 decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(width: 2, color: Colors.greenAccent)),
+                        borderSide: BorderSide(
+                            width: 2,
+                            color: Color.fromARGB(255, 152, 155, 154))),
                     border: OutlineInputBorder(),
                     labelText: 'Password',
                     prefixIcon: Icon(
                       Icons.lock,
-                      color: Colors.black,
+                      color: Color(0xff2b3258),
                     )),
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -126,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 35, 56, 215)),
+                    backgroundColor: Color(0xff2b3258)),
                 child: const Text(
                   'Login',
                   style: TextStyle(fontSize: 18, color: Colors.white),
@@ -164,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 31, 161, 36)),
+                    backgroundColor: Color(0xff2b3258)),
                 child: const Text(
                   'Create new CB account',
                   style: TextStyle(fontSize: 16, color: Colors.white),

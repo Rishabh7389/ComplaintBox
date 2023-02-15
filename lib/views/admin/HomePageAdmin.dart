@@ -41,6 +41,7 @@ class _HomePage2State extends State<HomePage2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff2b3258),
         title: Text(
           "All Complaints",
           style: TextStyle(color: Colors.white),
@@ -48,15 +49,23 @@ class _HomePage2State extends State<HomePage2> {
         centerTitle: true,
       ),
       drawer: Drawer(
+        backgroundColor: Color(0xff2b3258),
         child: ListView(
           children: [
             SizedBox(
               height: 750,
             ),
             Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                Color(0xff2b3258),
+                Color.fromARGB(255, 138, 130, 139)
+              ])),
               alignment: Alignment.bottomCenter,
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(8.0),
               child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xff2b3258)),
                   onPressed: () {
                     authServices.signOut(context);
                     Navigator.pushNamedAndRemoveUntil(

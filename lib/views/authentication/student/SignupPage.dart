@@ -40,13 +40,13 @@ class _SignupPageState extends State<SignupPage> {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 70),
               const Text(
                 "Sign Up",
                 style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 19, 34, 198)),
+                    color: Color(0xff2b3258)),
               ),
               const SizedBox(
                 height: 15,
@@ -67,13 +67,15 @@ class _SignupPageState extends State<SignupPage> {
                   decoration: const InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                            width: 3,
+                            color: Color.fromARGB(
+                                255, 100, 103, 102)), //<-- SEE HERE
                       ),
                       border: OutlineInputBorder(),
                       labelText: "Name",
                       prefixIcon: Icon(
                         Icons.people,
-                        color: Colors.blue,
+                        color: Color.fromARGB(255, 30, 30, 31),
                       )),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -95,13 +97,15 @@ class _SignupPageState extends State<SignupPage> {
                   decoration: const InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                            width: 3,
+                            color:
+                                Color.fromARGB(255, 88, 90, 89)), //<-- SEE HERE
                       ),
                       border: OutlineInputBorder(),
                       labelText: "Email",
                       prefixIcon: Icon(
                         Icons.mail,
-                        color: Color.fromARGB(255, 200, 15, 83),
+                        color: Color.fromARGB(255, 24, 24, 24),
                       )),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -123,13 +127,15 @@ class _SignupPageState extends State<SignupPage> {
                   decoration: const InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                            width: 3,
+                            color:
+                                Color.fromARGB(255, 80, 81, 80)), //<-- SEE HERE
                       ),
                       border: OutlineInputBorder(),
                       labelText: "Registration",
                       prefixIcon: Icon(
                         Icons.mail,
-                        color: Color.fromARGB(255, 200, 15, 83),
+                        color: Color.fromARGB(255, 29, 28, 29),
                       )),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -151,8 +157,9 @@ class _SignupPageState extends State<SignupPage> {
                       obscureText: true,
                       decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 3, color: Colors.greenAccent),
+                            borderSide: BorderSide(
+                                width: 3,
+                                color: Color.fromARGB(255, 92, 94, 93)),
                           ),
                           prefixIcon: Icon(
                             Icons.lock,
@@ -182,7 +189,8 @@ class _SignupPageState extends State<SignupPage> {
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                               width: 3,
-                              color: Colors.greenAccent), //<-- SEE HERE
+                              color: Color.fromARGB(
+                                  255, 84, 86, 85)), //<-- SEE HERE
                         ),
                         prefixIcon: Icon(
                           Icons.lock,
@@ -224,7 +232,7 @@ class _SignupPageState extends State<SignupPage> {
                               }
                           },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 20, 43, 215)),
+                          backgroundColor: Color(0xff2b3258)),
                       child: const Text(
                         "Sign Up",
                         style: TextStyle(
@@ -255,8 +263,7 @@ class _SignupPageState extends State<SignupPage> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 31, 161, 36)),
+                        backgroundColor: Color(0xff2b3258)),
                     child: const Text(
                       'Already have an account ',
                       style: TextStyle(fontSize: 18, color: Colors.white),

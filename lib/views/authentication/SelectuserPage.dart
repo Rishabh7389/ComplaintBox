@@ -11,7 +11,7 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 130, 8, 206),
+        backgroundColor: Color(0xff2b3258),
         title: const Text(
           "Select UserType",
           style: TextStyle(
@@ -25,7 +25,7 @@ class UserPage extends StatelessWidget {
           child: Column(
             children: [
               Image.asset(
-                "assets/images/user.png",
+                "assets/images/ert.png",
                 width: 150,
                 height: 140,
               ),
@@ -46,7 +46,7 @@ class UserPage extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 0, 0, 0)),
+                        color: Color(0xff2b3258)),
                   ),
                   const Text(
                     "-----------------------------------------------------------------------",
@@ -76,8 +76,7 @@ class UserPage extends StatelessWidget {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 194, 50, 45)),
+                            backgroundColor: Color(0xff2b3258)),
                         child: const Text(
                           'Login',
                           style: TextStyle(fontSize: 18, color: Colors.white),
@@ -103,7 +102,7 @@ class UserPage extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 0, 0, 0)),
+                          color: Color(0xff2b3258)),
                     ),
                     const Text(
                         "-----------------------------------------------------------------------"),
@@ -132,8 +131,7 @@ class UserPage extends StatelessWidget {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 55, 161, 188)),
+                              backgroundColor: Color(0xff2b3258)),
                           child: const Text(
                             'Login',
                             style: TextStyle(fontSize: 18, color: Colors.white),
