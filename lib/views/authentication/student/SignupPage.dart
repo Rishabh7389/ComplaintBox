@@ -16,6 +16,7 @@ class _SignupPageState extends State<SignupPage> {
   final passwordcontroller = TextEditingController();
   final confirmpasswordcontroller = TextEditingController();
   final namecontroller = TextEditingController();
+  final registrationcontroller = TextEditingController();
 
   @override
   void dispose() {
@@ -35,201 +36,235 @@ class _SignupPageState extends State<SignupPage> {
     return Material(
       child: Form(
         key: _formKey,
-        child: Column(
-          children: [
-            const SizedBox(height: 100),
-            const Text(
-              "Sign Up",
-              style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 147, 19, 198)),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              "Create an Accont,its free",
-              style: TextStyle(),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Container(
-              height: 80,
-              width: 350,
-              padding: const EdgeInsets.all(10),
-              child: TextFormField(
-                controller: namecontroller,
-                decoration: const InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                    ),
-                    border: OutlineInputBorder(),
-                    labelText: "Name",
-                    prefixIcon: Icon(
-                      Icons.people,
-                      color: Colors.blue,
-                    )),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your UserId';
-                  }
-                  return null;
-                },
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const SizedBox(height: 100),
+              const Text(
+                "Sign Up",
+                style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 147, 19, 198)),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 80,
-              width: 350,
-              padding: const EdgeInsets.all(10),
-              child: TextFormField(
-                controller: emailcontroller,
-                decoration: const InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                    ),
-                    border: OutlineInputBorder(),
-                    labelText: "Email",
-                    prefixIcon: Icon(
-                      Icons.mail,
-                      color: Color.fromARGB(255, 200, 15, 83),
-                    )),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter Email';
-                  }
-                  return null;
-                },
+              const SizedBox(
+                height: 15,
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
+              const Text(
+                "Create an Accont,its free",
+                style: TextStyle(),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Container(
                 height: 80,
                 width: 350,
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(
-                    controller: passwordcontroller,
+                  controller: namecontroller,
+                  decoration: const InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                      ),
+                      border: OutlineInputBorder(),
+                      labelText: "Name",
+                      prefixIcon: Icon(
+                        Icons.people,
+                        color: Colors.blue,
+                      )),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your UserId';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 80,
+                width: 350,
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                  controller: emailcontroller,
+                  decoration: const InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                      ),
+                      border: OutlineInputBorder(),
+                      labelText: "Email",
+                      prefixIcon: Icon(
+                        Icons.mail,
+                        color: Color.fromARGB(255, 200, 15, 83),
+                      )),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Email';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 80,
+                width: 350,
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                  controller: registrationcontroller,
+                  decoration: const InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 3, color: Colors.greenAccent), //<-- SEE HERE
+                      ),
+                      border: OutlineInputBorder(),
+                      labelText: "Registration",
+                      prefixIcon: Icon(
+                        Icons.mail,
+                        color: Color.fromARGB(255, 200, 15, 83),
+                      )),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Registration Number';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                  height: 80,
+                  width: 350,
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                      controller: passwordcontroller,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 3, color: Colors.greenAccent),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Colors.black,
+                          ),
+                          border: OutlineInputBorder(),
+                          labelText: " Password"),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Please Enter password";
+                        } else if (value.length < 8) {
+                          return "Password should be atleast 8";
+                        }
+                        return null;
+                      })),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                  height: 80,
+                  width: 350,
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    controller: confirmpasswordcontroller,
                     obscureText: true,
                     decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 3, color: Colors.greenAccent),
+                          borderSide: BorderSide(
+                              width: 3,
+                              color: Colors.greenAccent), //<-- SEE HERE
                         ),
                         prefixIcon: Icon(
                           Icons.lock,
                           color: Colors.black,
                         ),
                         border: OutlineInputBorder(),
-                        labelText: " Password"),
+                        labelText: " Confirm Password"),
                     validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please Enter password";
-                      } else if (value.length < 8) {
-                        return "Password should be atleast 8";
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter password';
                       }
-                      return null;
-                    })),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-                height: 80,
-                width: 350,
-                padding: const EdgeInsets.all(10),
-                child: TextFormField(
-                  controller: confirmpasswordcontroller,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 3, color: Colors.greenAccent), //<-- SEE HERE
-                      ),
-                      prefixIcon: Icon(
-                        Icons.lock,
-                        color: Colors.black,
-                      ),
-                      border: OutlineInputBorder(),
-                      labelText: " Confirm Password"),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter password';
-                    }
-                    if (value != passwordcontroller.text) {
-                      return 'Password not match';
-                    }
+                      if (value != passwordcontroller.text) {
+                        return 'Password not match';
+                      }
 
-                    return null;
-                  },
-                )),
-            const SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-                height: 50,
-                width: 330,
-                child: ElevatedButton(
-                    onPressed: () => {
-                          if (_formKey.currentState!.validate() &&
-                              ((emailcontroller.text.split('@'))[1] ==
-                                  'vitbhopal.ac.in'))
-                            {
-                              authServices.signupuser(
-                                  emailcontroller.text,
-                                  passwordcontroller.text,
-                                  namecontroller.text,
-                                  false),
-                              Navigator.pushNamedAndRemoveUntil(
-                                  context, "/login", (route) => false)
-                            }
-                        },
+                      return null;
+                    },
+                  )),
+              const SizedBox(
+                height: 30,
+              ),
+              SizedBox(
+                  height: 50,
+                  width: 330,
+                  child: ElevatedButton(
+                      onPressed: () => {
+                            if (_formKey.currentState!.validate() &&
+                                ((emailcontroller.text.split('@'))[1] ==
+                                    'vitbhopal.ac.in'))
+                              {
+                                authServices.signupuser(
+                                    emailcontroller.text,
+                                    passwordcontroller.text,
+                                    namecontroller.text,
+                                    false,
+                                    registrationcontroller.text),
+                                Navigator.pushNamedAndRemoveUntil(
+                                    context, "/login", (route) => false)
+                              }
+                          },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 134, 20, 215)),
+                      child: const Text(
+                        "Sign Up",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ))),
+              const SizedBox(
+                height: 30,
+              ),
+              const Text(
+                "--------------------------or-------------------------",
+                style: TextStyle(fontSize: 19),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Container(
+                  height: 40,
+                  width: 350,
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            const Color.fromARGB(255, 134, 20, 215)),
+                            const Color.fromARGB(255, 31, 161, 36)),
                     child: const Text(
-                      "Sign Up",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ))),
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              "--------------------------or-------------------------",
-              style: TextStyle(fontSize: 19),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Container(
-                height: 40,
-                width: 350,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginPage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 31, 161, 36)),
-                  child: const Text(
-                    'Already have an account ',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                )),
-          ],
+                      'Already have an account ',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                  )),
+            ],
+          ),
         ),
       ),
     );

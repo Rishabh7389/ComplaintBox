@@ -13,13 +13,15 @@ class ComplaintServices {
   CollectionReference complaints =
       FirebaseFirestore.instance.collection("complaints");
 
-  Future saveuserdata(String fullName, String email, bool isAdmin) async {
+  Future saveuserdata(
+      String fullName, String email, bool isAdmin, String registration) async {
     return await user.doc(uid).set({
       "fullName": fullName,
       "complaints": [],
       "email": email,
       "uid": uid,
-      "isAdmin": isAdmin
+      "isAdmin": isAdmin,
+      "registration": registration
     });
   }
 

@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
 
   String? userName;
   String? userEmail;
+  String? reg;
 
   HelperService helperService = HelperService();
 
@@ -47,6 +48,7 @@ class _HomePageState extends State<HomePage> {
       log('user data cast to Map: $userData');
       userName = userData['fullName'];
       userEmail = userData['email'];
+      reg = userData['registration'];
     }
   }
 
@@ -273,6 +275,18 @@ class _HomePageState extends State<HomePage> {
                   child: Center(
                       child: Text(
                     "Email : $userEmail",
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
+                  ))),
+                   Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: [
+                    Colors.purple.shade300,
+                    Colors.purple.shade600
+                  ])),
+                  child: Center(
+                      child: Text(
+                    "Registration : $reg",
                     style: const TextStyle(color: Colors.white, fontSize: 15),
                   ))),
               const SizedBox(
