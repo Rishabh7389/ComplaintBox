@@ -37,7 +37,7 @@ class _SignupPageState extends State<SignupPage> {
       child: Form(
         key: _formKey,
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               const SizedBox(height: 70),
@@ -232,7 +232,7 @@ class _SignupPageState extends State<SignupPage> {
                               }
                           },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff2b3258)),
+                          backgroundColor: const Color(0xff2b3258)),
                       child: const Text(
                         "Sign Up",
                         style: TextStyle(
@@ -263,7 +263,7 @@ class _SignupPageState extends State<SignupPage> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff2b3258)),
+                        backgroundColor: const Color(0xff2b3258)),
                     child: const Text(
                       'Already have an account ',
                       style: TextStyle(fontSize: 18, color: Colors.white),

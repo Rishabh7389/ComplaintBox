@@ -27,7 +27,7 @@ class ComplaintContainer extends StatelessWidget {
       child: Container(
         width: 350,
         decoration: BoxDecoration(
-            color: Color.fromARGB(255, 51, 51, 51),
+            color: const Color.fromARGB(255, 51, 51, 51),
             borderRadius: BorderRadius.circular(20)),
         child: Padding(
             padding: const EdgeInsets.all(16.0),

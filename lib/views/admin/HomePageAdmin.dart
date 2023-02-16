@@ -58,7 +58,7 @@ class _HomePage2State extends State<HomePage2> {
             ),
             Container(
               decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
+                  gradient: LinearGradient(colors: const [
                 Color(0xff2b3258),
                 Color.fromARGB(255, 138, 130, 139)
               ])),

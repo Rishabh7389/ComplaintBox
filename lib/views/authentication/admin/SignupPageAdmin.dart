@@ -189,7 +189,7 @@ class _SignupPage2State extends State<SignupPage2> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff2b3258)),
+                        backgroundColor: const Color(0xff2b3258)),
                     child: const Text(
                       "Sign Up",
                       style: TextStyle(
@@ -220,7 +220,7 @@ class _SignupPage2State extends State<SignupPage2> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xff2b3258)),
+                      backgroundColor: const Color(0xff2b3258)),
                   child: const Text(
                     'Already have an account ',
                     style: TextStyle(fontSize: 18, color: Colors.white),

@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xff2b3258),
+          backgroundColor: const Color(0xff2b3258),
           title: const Text(
             "Complaint Box",
             style: TextStyle(color: Colors.white),
@@ -227,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                         }
                       }),
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff2b3258)),
+                          backgroundColor: const Color(0xff2b3258)),
                       child: const Text(
                         'Send',
                         style: TextStyle(fontSize: 18, color: Colors.white),
@@ -252,7 +252,7 @@ class _HomePageState extends State<HomePage> {
         ),
         drawer: Drawer(
           child: Container(
-            color: Color(0xff2b3258),
+            color: const Color(0xff2b3258),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
@@ -262,7 +262,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Container(
                       height: 50,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           gradient: LinearGradient(colors: [
                         Color(0xff2b3258),
                         Color.fromARGB(255, 138, 130, 139)
@@ -277,7 +277,7 @@ class _HomePageState extends State<HomePage> {
                       ))),
                   Container(
                       height: 50,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           gradient: LinearGradient(colors: [
                         Color(0xff2b3258),
                         Color.fromARGB(255, 138, 130, 139)
@@ -292,7 +292,7 @@ class _HomePageState extends State<HomePage> {
                       ))),
                   Container(
                       height: 50,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           gradient: LinearGradient(colors: [
                         Color(0xff2b3258),
                         Color.fromARGB(255, 138, 130, 139)
@@ -309,7 +309,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         gradient: LinearGradient(colors: [
                       Color(0xff2b3258),
                       Color.fromARGB(255, 138, 130, 139)
@@ -330,7 +330,7 @@ class _HomePageState extends State<HomePage> {
                     height: 450,
                   ),
                   Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           gradient: LinearGradient(colors: [
                         Color(0xff2b3258),
                         Color.fromARGB(255, 138, 130, 139)
@@ -341,7 +341,7 @@ class _HomePageState extends State<HomePage> {
                           authServices.signOut(context);
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff2b3258)),
+                            backgroundColor: const Color(0xff2b3258)),
                         child: const Text(
                           'Logout',
                           style: TextStyle(fontSize: 18, color: Colors.white),

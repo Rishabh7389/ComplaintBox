@@ -122,7 +122,7 @@ class _LoginPage2State extends State<LoginPage2> {
                 width: 390,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff2b3258)),
+                        backgroundColor: const Color(0xff2b3258)),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         authServices.signInUser(emailcontroller.text,
@@ -160,7 +160,8 @@ class _LoginPage2State extends State<LoginPage2> {
               height: 40,
               width: 300,
               child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Color(0xff2b3258)),
+                  style: ElevatedButton.styleFrom(
+                      primary: const Color(0xff2b3258)),
                   onPressed: () {
                     Navigator.push(
                         context,

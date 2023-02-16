@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff2b3258)),
+                    backgroundColor: const Color(0xff2b3258)),
                 child: const Text(
                   'Login',
                   style: TextStyle(fontSize: 18, color: Colors.white),
@@ -167,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff2b3258)),
+                    backgroundColor: const Color(0xff2b3258)),
                 child: const Text(
                   'Create new CB account',
                   style: TextStyle(fontSize: 16, color: Colors.white),
