@@ -25,7 +25,7 @@ class ComplaintContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Container(
-        width: 350,
+        width: double.infinity,
         decoration: BoxDecoration(
             color: const Color.fromARGB(255, 51, 51, 51),
             borderRadius: BorderRadius.circular(20)),
@@ -33,12 +33,22 @@ class ComplaintContainer extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                const Text(
-                  "Complaint Status : Complaint Pending",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Status : Complaint Pending",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      color: Colors.greenAccent,
+                      icon: Icon(Icons.delete),
+                    )
+                  ],
                 ),
                 const SizedBox(
                   height: 20,
