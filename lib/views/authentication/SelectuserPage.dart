@@ -33,8 +33,8 @@ class UserPage extends StatelessWidget {
                 height: 30,
               ),
               Container(
-                width: 350,
-                height: 130,
+                width: 370,
+                height: 170,
                 decoration: BoxDecoration(
                   border: Border.all(
                       color: const Color.fromARGB(255, 31, 10, 186), width: 2),
@@ -88,8 +88,8 @@ class UserPage extends StatelessWidget {
                 height: 30,
               ),
               Container(
-                width: 350,
-                height: 130,
+                width: 370,
+                height: 170,
                 decoration: BoxDecoration(
                   border: Border.all(
                       color: const Color.fromARGB(255, 31, 10, 186), width: 2),

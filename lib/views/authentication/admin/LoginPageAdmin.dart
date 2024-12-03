@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, prefer_final_fields, deprecated_member_use
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_application_1/views/authentication/admin/SignupPageAdmin.dart';
@@ -161,7 +159,7 @@ class _LoginPage2State extends State<LoginPage2> {
               width: 300,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xff2b3258)),
+                      backgroundColor: const Color(0xff2b3258)),
                   onPressed: () {
                     Navigator.push(
                         context,

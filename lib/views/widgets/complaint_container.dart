@@ -46,7 +46,7 @@ class ComplaintContainer extends StatelessWidget {
                     IconButton(
                       onPressed: () {},
                       color: Colors.greenAccent,
-                      icon: Icon(Icons.delete),
+                      icon: const Icon(Icons.delete),
                     )
                   ],
                 ),
@@ -59,11 +59,11 @@ class ComplaintContainer extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 40),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 40),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
                               "Name",
                               style: TextStyle(

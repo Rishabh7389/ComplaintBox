@@ -5,13 +5,13 @@ class GuestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            const Text(
+            Text(
               "we are working on it",
               style: TextStyle(fontSize: 22),
             )
