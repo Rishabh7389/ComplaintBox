@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/helper/helper_service.dart';
 import 'package:flutter_application_1/constant/services/complaint_services.dart';
 import 'package:flutter_application_1/views/widgets/app_snackbar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AuthServices {
   HelperService helperService = HelperService();
@@ -40,10 +41,16 @@ class AuthServices {
       if (user != null) {
         await helperService.setValue("uid", user.uid);
         await helperService.setValue("loggedinStatus", true);
-        Navigator.pushNamedAndRemoveUntil(
+        Fluttertoast.showToast(
+            msg: "Loging In", backgroundColor: const Color(0xff2b3258));
+        await Navigator.pushNamedAndRemoveUntil(
             context, isAdmin ? '/homeadmin' : "/home", (route) => false);
       }
     } on FirebaseAuthException catch (e) {
+      Fluttertoast.showToast(
+          msg: "Check Your Email and Password and Try Again",
+          backgroundColor: const Color(0xff2b3258));
+      log("Error");
       log(e.toString());
     }
   }

@@ -9,6 +9,10 @@ class UserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xff2b3258),
@@ -19,130 +23,96 @@ class UserPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Material(
-        child: Padding(
-          padding: const EdgeInsets.all(28.0),
-          child: Column(
-            children: [
-              Image.asset(
-                "assets/images/ert.png",
-                width: 150,
-                height: 140,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 370,
-                height: 170,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                      color: const Color.fromARGB(255, 31, 10, 186), width: 2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Column(children: [
-                  const Text(
-                    "Complaint Box For Student ",
-                    style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff2b3258)),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          // Use constraints to adapt layouts
+          final isLandscape = constraints.maxWidth > constraints.maxHeight;
+
+          return SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/ert.png",
+                    width: isLandscape ? screenWidth * 0.25 : screenWidth * 0.5,
+                    height:
+                        isLandscape ? screenHeight * 0.2 : screenHeight * 0.2,
                   ),
-                  const Text(
-                    "-----------------------------------------------------------------------",
+                  SizedBox(height: screenHeight * 0.03),
+                  buildUserCard(
+                    context,
+                    "Complaint Box For Student",
+                    "With Responsive and Fresh Look and Feel",
+                    const LoginPage(),
                   ),
-                  Container(
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "With Responsive and Fresh Look and Feel",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 12, 3, 132),
-                            fontSize: 16),
-                      )),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(height: screenHeight * 0.03),
+                  buildUserCard(
+                    context,
+                    "Complaint Box For Admin",
+                    "With more information about Complaint",
+                    const LoginPage2(),
                   ),
-                  Container(
-                      alignment: Alignment.bottomRight,
-                      height: 50,
-                      width: 400,
-                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const LoginPage()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xff2b3258)),
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        ),
-                      )),
-                ]),
+                ],
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 370,
-                height: 170,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                      color: const Color.fromARGB(255, 31, 10, 186), width: 2),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      "Complaint Box For Admin ",
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff2b3258)),
-                    ),
-                    const Text(
-                        "-----------------------------------------------------------------------"),
-                    Container(
-                        alignment: Alignment.center,
-                        child: const Text(
-                          "With more information about Complaint",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 12, 3, 132),
-                              fontSize: 16),
-                        )),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                        alignment: Alignment.bottomRight,
-                        height: 50,
-                        width: 400,
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage2()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xff2b3258)),
-                          child: const Text(
-                            'Login',
-                            style: TextStyle(fontSize: 18, color: Colors.white),
-                          ),
-                        )),
-                  ],
-                ),
-              ),
-            ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget buildUserCard(BuildContext context, String title, String description,
+      Widget targetPage) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    return Container(
+      width: double.infinity,
+      constraints: BoxConstraints(
+        maxWidth: screenWidth * 0.9,
+      ),
+      decoration: BoxDecoration(
+        border:
+            Border.all(color: const Color.fromARGB(255, 31, 10, 186), width: 2),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff2b3258)),
           ),
-        ),
+          const Divider(),
+          Text(
+            description,
+            style: const TextStyle(
+                color: Color.fromARGB(255, 12, 3, 132), fontSize: 16),
+          ),
+          const SizedBox(height: 10),
+          Align(
+            alignment: Alignment.centerRight,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => targetPage),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xff2b3258)),
+              child: const Text(
+                'Login',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
