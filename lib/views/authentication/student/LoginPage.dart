@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/services/auth_service.dart';
 import 'package:flutter_application_1/views/authentication/student/SignupPage.dart';
@@ -17,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+  bool _isPasswordVisible = false; // State variable for password visibility
 
   @override
   void dispose() {
@@ -87,7 +86,20 @@ class _LoginPageState extends State<LoginPage> {
                   controller: passwordcontroller,
                   labelText: "Password",
                   icon: Icons.lock,
-                  obscureText: true,
+                  obscureText: !_isPasswordVisible,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: const Color(0xff2b3258),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isPasswordVisible = !_isPasswordVisible;
+                      });
+                    },
+                  ),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter password";
@@ -168,6 +180,7 @@ class _LoginPageState extends State<LoginPage> {
     required String labelText,
     required IconData icon,
     bool obscureText = false,
+    Widget? suffixIcon,
     String? Function(String?)? validator,
   }) {
     return Container(
@@ -183,6 +196,7 @@ class _LoginPageState extends State<LoginPage> {
           border: const OutlineInputBorder(),
           labelText: labelText,
           prefixIcon: Icon(icon, color: const Color(0xff2b3258)),
+          suffixIcon: suffixIcon, // Added suffix icon for password visibility
         ),
         validator: validator,
       ),

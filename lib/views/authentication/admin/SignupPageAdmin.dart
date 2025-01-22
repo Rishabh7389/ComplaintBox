@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/services/auth_service.dart';
 import 'package:flutter_application_1/views/authentication/admin/LoginPageAdmin.dart';
@@ -17,6 +15,10 @@ class _SignupPage2State extends State<SignupPage2> {
   final namecontroller = TextEditingController();
   final confirmpasscontroller = TextEditingController();
 
+  bool _isPasswordVisible = false; // Toggle for password visibility
+  bool _isConfirmPasswordVisible =
+      false; // Toggle for confirm password visibility
+
   @override
   void dispose() {
     emailcontroller.dispose();
@@ -31,6 +33,7 @@ class _SignupPage2State extends State<SignupPage2> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -82,11 +85,16 @@ class _SignupPage2State extends State<SignupPage2> {
                   },
                 ),
                 SizedBox(height: screenHeight * 0.02),
-                buildTextField(
+                buildPasswordField(
                   controller: passwordcontroller,
                   labelText: "Password",
                   icon: Icons.lock,
-                  obscureText: true,
+                  obscureText: !_isPasswordVisible,
+                  onToggleVisibility: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter password";
@@ -97,11 +105,16 @@ class _SignupPage2State extends State<SignupPage2> {
                   },
                 ),
                 SizedBox(height: screenHeight * 0.02),
-                buildTextField(
+                buildPasswordField(
                   controller: confirmpasscontroller,
                   labelText: "Confirm Password",
                   icon: Icons.lock,
-                  obscureText: true,
+                  obscureText: !_isConfirmPasswordVisible,
+                  onToggleVisibility: () {
+                    setState(() {
+                      _isConfirmPasswordVisible = !_isConfirmPasswordVisible;
+                    });
+                  },
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please confirm your password';
@@ -155,6 +168,7 @@ class _SignupPage2State extends State<SignupPage2> {
     );
   }
 
+  // Function to build TextFields
   Widget buildTextField({
     required TextEditingController controller,
     required String labelText,
@@ -180,6 +194,41 @@ class _SignupPage2State extends State<SignupPage2> {
     );
   }
 
+  // Function to build Password Fields with Eye Button
+  Widget buildPasswordField({
+    required TextEditingController controller,
+    required String labelText,
+    required IconData icon,
+    required bool obscureText,
+    required VoidCallback onToggleVisibility,
+    String? Function(String?)? validator,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      child: TextFormField(
+        controller: controller,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 2, color: Color(0xff2b3258)),
+          ),
+          border: const OutlineInputBorder(),
+          labelText: labelText,
+          prefixIcon: Icon(icon, color: const Color(0xff2b3258)),
+          suffixIcon: IconButton(
+            icon: Icon(
+              obscureText ? Icons.visibility_off : Icons.visibility,
+              color: const Color(0xff2b3258),
+            ),
+            onPressed: onToggleVisibility,
+          ),
+        ),
+        validator: validator,
+      ),
+    );
+  }
+
+  // Function to build Buttons
   Widget buildButton({
     required String text,
     required VoidCallback onPressed,

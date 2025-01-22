@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/views/authentication/admin/ForgotPassAdmin.dart';
 import 'package:flutter_application_1/views/authentication/admin/SignupPageAdmin.dart';
 import '../../../constant/services/auth_service.dart';
 
@@ -12,6 +13,8 @@ class LoginPage2 extends StatefulWidget {
 class _LoginPage2State extends State<LoginPage2> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+
+  bool _isPasswordVisible = false; // Toggle for password visibility
 
   @override
   void dispose() {
@@ -78,11 +81,15 @@ class _LoginPage2State extends State<LoginPage2> {
                   },
                 ),
                 SizedBox(height: screenHeight * 0.02),
-                buildTextField(
+                buildPasswordField(
                   controller: passwordcontroller,
                   labelText: "Password",
-                  icon: Icons.lock,
-                  obscureText: true,
+                  obscureText: !_isPasswordVisible,
+                  onToggleVisibility: () {
+                    setState(() {
+                      _isPasswordVisible = !_isPasswordVisible;
+                    });
+                  },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Please Enter password";
@@ -104,7 +111,13 @@ class _LoginPage2State extends State<LoginPage2> {
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Forgotpassadmin()),
+                    );
+                  },
                   child: const Text(
                     'Forgot Password ?',
                     style: TextStyle(
@@ -136,6 +149,7 @@ class _LoginPage2State extends State<LoginPage2> {
     );
   }
 
+  // Function to build TextFields
   Widget buildTextField({
     required TextEditingController controller,
     required String labelText,
@@ -161,6 +175,40 @@ class _LoginPage2State extends State<LoginPage2> {
     );
   }
 
+  // Function to build Password Field with Eye Button
+  Widget buildPasswordField({
+    required TextEditingController controller,
+    required String labelText,
+    required bool obscureText,
+    required VoidCallback onToggleVisibility,
+    String? Function(String?)? validator,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      child: TextFormField(
+        controller: controller,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 3, color: Color(0xff2b3258)),
+          ),
+          border: const OutlineInputBorder(),
+          labelText: labelText,
+          prefixIcon: const Icon(Icons.lock, color: Color(0xff2b3258)),
+          suffixIcon: IconButton(
+            icon: Icon(
+              obscureText ? Icons.visibility_off : Icons.visibility,
+              color: const Color(0xff2b3258),
+            ),
+            onPressed: onToggleVisibility,
+          ),
+        ),
+        validator: validator,
+      ),
+    );
+  }
+
+  // Function to build Buttons
   Widget buildButton({
     required String text,
     required VoidCallback onPressed,
